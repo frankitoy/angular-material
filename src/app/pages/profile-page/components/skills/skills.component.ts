@@ -77,18 +77,18 @@ export class SkillsComponent implements OnInit, OnDestroy {
       const { response: data } = res;
 
      // this.skills = data.slice(0, this.limit);
-     //console.log(data);
+     // console.log(data);
 
       if (data.length < this.limit) {
         this.showAddMore =  this.limit - data.length;
-      }               
+      }
 
-     this.skillsOpen= data.filter(key => !!key.active).slice(0, this.limit);      
-     this.skillsClose= data.filter(key => !key.active).slice(0, this.limit); 
+     this.skillsOpen = data.filter(key => !!key.active).slice(0, this.limit);
+     this.skillsClose = data.filter(key => !key.active).slice(0, this.limit);
 
      this.isLoaded = true;
      this.isLoadingSkills = false;
-      
+
     });
   }
 

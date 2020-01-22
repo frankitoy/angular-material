@@ -1,11 +1,11 @@
 {
-  "name": "zippycrowd",
+  "name": "angular material",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all lint:fix serve",
     "build": "ng build",
-    "deploy": "ng build --build-optimizer=true --prod --source-map --base-href=/ && aws s3 sync ./dist/zippycrowd/ s3://staging.zippycrowd.com --acl public-read --delete --exclude '/data/*' --cache-control max-age=300,public",
+    "deploy": "ng build --build-optimizer=true --prod --source-map --base-href=/",
     "e2e": "ng e2e -wu false",
     "e2e:ci": "/usr/bin/xvfb-run --server-args=\"-screen 0 1920x1920x24\" npm run e2e",
     "lint": "ng lint",

@@ -32,7 +32,7 @@ export class CrowdComponent implements OnInit, AfterViewInit {
   pageOwner: boolean;
   _ngUnsubscribe: Subject<void> = new Subject<void>();
   _relation: Relation;
-  
+
   @ViewChild('map') gmapElement: ElementRef;
   map: any;
   userLocations: any;
