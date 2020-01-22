@@ -1,0 +1,102 @@
+<mat-toolbar class="topbar">
+  <div class="topbar-container">
+    <a routerLink="/" class="zippycrowd-logo" title="ZippyCrowd">
+      <img src="/assets/img/icons/logo.svg" alt="ZippyCrowd Logo">
+    </a>
+    <div class="topbar-search">
+      <form [formGroup]="searchForm" (submit)="handleSearchSubmit()">
+        <input formControlName="search" autofocus="true" placeholder="Find people, skills, asks, recommendations" type="text">
+        <button class="ts-icoon">
+          <mat-icon role="img">search</mat-icon>
+        </button>
+      </form>
+    </div>
+
+    <span fxFlex></span>
+
+    <div class="topbar-routes">
+      <button mat-button [routerLink]="['/crowdfeed']" routerLinkActive="active">
+        <mat-icon svgIcon="crowd-lx"></mat-icon>
+        CrowdFeed
+      </button>
+
+      <!-- TODO: update for active class for current page -->
+      <button mat-button [routerLink]="['/dashboard']" routerLinkActive="active">
+        <mat-icon svgIcon="dashboard"></mat-icon>
+        Dashboard
+      </button>
+    </div>
+
+    <div class="topbar-profile">
+      <!-- Top left user menu -->
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right img-button" *ngIf="avatar">
+        <img mat-card-avatar [attr.src]="avatar" alt="user avatar">
+        <mat-icon svgIcon="arr-down"></mat-icon>
+      </button>
+      <mat-menu #accountMenu="matMenu">                   
+        <mat-card class="o-userCard"  *ngIf="avatar">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img mat-card-avatar [attr.src]="avatar" alt="user avatar">
+            </div>
+            <mat-card-title> {{ firstName }} {{ lastName }}</mat-card-title>
+            <mat-card-subtitle><a [routerLink]="['/profile/about']"> View Profile </a></mat-card-subtitle>                       
+          </mat-card-header>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [routerLink]="['/profile/skills']">
+          <mat-icon svgIcon="skills"></mat-icon>
+          <span>My Skills</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/profile/asks']">
+          <mat-icon svgIcon="asks"></mat-icon>
+          <span>My Asks</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/profile/recs']">
+          <mat-icon svgIcon="recs"></mat-icon>
+          <span>My Recs</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/profile/crowd']">
+          <mat-icon svgIcon="crowd"></mat-icon>
+          <span>My Crowd</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [routerLink]="['/settings']">
+          <mat-icon svgIcon="settings"></mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item (click)="signOut()">
+          <mat-icon svgIcon="logout"></mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
+    </div>
+        <div class="topbar-zipmenu">
+            <button mat-icon-button matTooltip="Chat" [matMenuTriggerFor]="chat">
+                <mat-icon svgIcon="chat-bubble"></mat-icon>
+                <span class="notification-number mat-bg-warn">2</span>
+            </button>
+            <mat-menu #chat="matMenu">
+              chat goes here
+            </mat-menu>
+        </div>
+        <div class="topbar-zipmenu">
+                <button mat-icon-button matTooltip="Notifications"  [matMenuTriggerFor]="notifications">
+                        <mat-icon svgIcon="notifications"></mat-icon>                
+                        <!-- <span class="notification-number mat-bg-warn">3</span> -->
+                    </button>
+                    <mat-menu #notifications="matMenu">
+                            notifications
+                    </mat-menu>
+        </div>
+
+        <div class="topbar-sidemenu">
+            <button mat-icon-button matTooltip="Dashboad Menu" (click)="toggledashboardSideNav()" [style.overflow]="'visible'"
+                class="topbar-button-right">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+    </div>
+
+
+</mat-toolbar>

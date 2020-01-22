@@ -1,0 +1,70 @@
+$header-height : 64px;
+zpc-non-authenticated-header-top {
+    width: 100%;
+    height: $header-height;    
+
+    header {  
+        padding: 10px 5px;
+        position: relative;
+        height: $header-height;
+        z-index: 1000;
+        background: #FFFFFF;
+
+        .o-header {
+          @extend .content-width; 
+          padding: 0 1rem;          
+          display: grid;
+          grid-template-columns: 52% auto;    
+          height: 100%;
+
+          font-weight: 500;
+          a, button {
+            color: #000;
+            box-shadow: none;
+            &.get-zc {
+              background: #FF3365;
+              color: $white;
+              text-transform: uppercase;
+            }
+            &.log-in {
+              border: 1px solid #FF3365;
+            }
+          }
+      
+          &-logo {  
+            display: flex;       
+            align-items: center; 
+            img {
+              display: inline;  
+            }
+          } 
+         
+          &-nav {
+            justify-self: right;
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              li {
+                display: inline-block;
+                padding: 0 10px;
+              }
+            }            
+          }
+        }
+      
+        .btn-nav-menu {
+          @extend .c-btn;
+          border: none;
+          &:hover, &:focus, &:active {
+            background-color: none;
+          }
+          img {
+            height: 15px;
+            width: 24px;
+            object-fit: contain;
+          }
+        }
+       
+      }
+}  

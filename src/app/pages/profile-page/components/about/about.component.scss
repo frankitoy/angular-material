@@ -1,0 +1,65 @@
+// Import the necessary scss files here
+@import '~assets/stylesheets/scss/variables';
+@import '~assets/stylesheets/scss/main';
+
+.social-icon {
+    width: 100%;
+    
+    * {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        line-height: 22px;
+    }
+}
+.desc {
+    font-size: 0.875rem;
+    color: #4F4F4F;
+}
+/deep/  .elsewhere {
+    .mat-list-item-content {
+        padding: 0 0 !important;
+        a {
+            text-transform: capitalize;
+        }
+    }
+}
+/deep/ .about-section {
+    .about {
+        .mat-card-title {
+            text-transform: uppercase;
+           // margin-bottom: 0;
+        }
+    }
+}
+
+/deep/.core-rail  {
+    .mat-card {
+        margin-bottom: 1.25rem;
+    }
+}
+/deep/.c-profile-main{
+    zpc-about {
+        .core-rail {
+            .mat-card {
+                margin-bottom: 1.25rem;
+            }
+        } 
+    }
+} 
+
+/deep/ .right-rail {
+    .mat-card {
+        border-radius: 10px;
+    }
+    .right-sidebar {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+
+        .mat-icon {
+            height: 40px;
+            width: 40px;
+        }
+    }
+}

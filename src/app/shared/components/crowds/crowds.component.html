@@ -1,0 +1,27 @@
+<mat-card class="crowd-ask">
+  <p class="title">{{ term | titlecase }} <span *ngIf="category === 'asks'">ASKS</span> ({{ f1Crowd?.length + f2Crowd?.length }})</p>
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Crowd F1 ({{ f1Crowd?.length }})
+      </ng-template>
+      <ng-container *ngIf="f1Crowd && f1Crowd?.length >= 1; else nof1Crowd">
+        <zpc-recommended-crowd [term]="term" *ngFor="let data of f1Crowd" [user]="data"></zpc-recommended-crowd>
+      </ng-container>
+      <ng-template #nof1Crowd>
+        <p class="noData">No F1 Crowd to show</p>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Crowd F2 ({{ f2Crowd?.length }})
+      </ng-template>
+      <ng-container *ngIf="f2Crowd && f2Crowd?.length >= 1; else nof2Crowd">
+        <zpc-recommended-crowd [term]="term" *ngFor="let data of f2Crowd" [user]="data"></zpc-recommended-crowd>
+      </ng-container>
+      <ng-template #nof2Crowd>
+        <p class="noData">No F2 Crowd to show</p>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

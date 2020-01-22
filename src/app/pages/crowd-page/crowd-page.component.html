@@ -1,0 +1,70 @@
+<main class="c-crowd-main" role="main">
+  <aside class="left-rail" role="presentation">
+    <zpc-intro></zpc-intro>
+  </aside>
+  <div class="core-rail">
+    <mat-card class="card01">
+      <mat-card-content>
+        <div class="content01">
+          <p>What’s on your mind today?<br>
+            All it takes is one recommendation!
+          </p>
+        </div>
+        <div class="content02">
+          <ul>
+            <li>
+              <div (click)="handleOpenAskRec()">
+                <img src="/assets/img/icons/ic-chat-heart.svg" alt="heart">
+              </div>
+              <span>Find</span>
+            </li>
+            <li>
+              <div (click)="handleOpenSkillCard()">
+                <img src="/assets/img/icons/ic-chat-skill.svg" alt="skill">
+              </div>
+              <span>Work</span>
+            </li>
+            <li>
+              <div (click)="handleOpenCrowdZip()">
+                <img src="/assets/img/icons/ic-chat-add-user.svg" alt="add">
+              </div>
+              <span>Zip</span>
+            </li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card02">
+      <mat-card-header>
+        <mat-card-title>
+          CROWDFEED
+        </mat-card-title>
+      </mat-card-header>
+      <mat-tab-group (selectedTabChange)="handleChangeCrowd($event.index)">
+        <mat-tab label="ALL"></mat-tab>
+        <mat-tab label="ASK"></mat-tab>
+        <mat-tab label="SKILLS"></mat-tab>
+      </mat-tab-group>
+    </mat-card>
+
+    <mat-card [ngStyle]="{ 'padding-bottom': isShowMoreHidden ? '0' : '.75rem' }" class="card03">
+      <zpc-app-loader *ngIf="!isLoaded; else asksLoaded"></zpc-app-loader>
+      <ng-template #asksLoaded>
+        <mat-card-content>
+          <ng-container *ngIf="offset; else noAskLists">
+            <zpc-crowdfeed-card *ngFor="let crowdData of crowd" [data]="crowdData" (archive)="archiveClick($event)"></zpc-crowdfeed-card>
+          </ng-container>
+          <ng-template #noAskLists>
+            <p class="text-center">No Asks yet.</p>
+          </ng-template>
+        </mat-card-content>
+        <mat-card-actions *ngIf="!isShowMoreHidden" class="load-more-wrap">
+          <button *ngIf="!isLoadingAsks" (click)="getAsks(userId, offset, limit)" mat-button>
+            <span> Show More </span>
+          </button>
+          <zpc-app-loader *ngIf="isLoadingAsks"></zpc-app-loader>
+        </mat-card-actions>
+      </ng-template>
+    </mat-card>
+  </div>
+</main>

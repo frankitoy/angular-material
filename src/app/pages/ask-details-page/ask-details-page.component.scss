@@ -1,0 +1,138 @@
+zpc-ask-details-page {    
+
+    .p-ask-details {
+        padding: 2rem 0; 
+        @extend .content-wrap; 
+        min-height: 100vh;
+        padding-top: 1rem;
+            
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }  
+         
+        zpc-stepper {          
+            .mat-stepper-horizontal {
+              max-width: 600px;
+              margin: 2rem auto 1rem;
+              background-color: transparent;
+             
+              .mat-horizontal-stepper-header-container {
+                width: 50%;
+                margin: 0 auto;
+                .mat-horizontal-stepper-header {
+                  pointer-events: none !important;
+                  flex-direction: column;
+                  padding: 0;
+                  width: 100px;
+                  .mat-step-icon-state-number .mat-step-icon .mat-step-icon-selected {
+                    background-color: #762FE6;
+                  }
+                  .mat-step-label.mat-step-label-active {
+                    color: #762FE6;
+                  }
+                  
+                  .mat-step-icon {
+                      height: 34px;
+                      width: 34px;
+                      margin-bottom: .38rem;
+                  }
+                }
+                .mat-stepper-horizontal-line {
+                  //margin: 0 -2rem; 
+                  margin-bottom: 38px;
+                }                 
+              }
+            }
+        }
+        .mat-card {     
+            border: 1px solid #C5C5C5;
+            box-shadow: none!important;
+            padding: .75rem 1.5rem;
+            overflow: hidden;
+            border-radius: 10px;
+            overflow: visible;
+            margin-bottom: 75px;
+
+            >.mat-card-header {
+              justify-content: space-between;
+              position: relative;
+              margin: -.75rem -1.5rem 0;
+              padding: .75rem 1.5rem 1px;
+              border-bottom: 1px solid rgba(0,0,0,.12);
+              .mat-card-title {
+                  margin-top: 5px;
+                  font-size: 1rem;
+                  font-weight: bold;
+                  color: #000;
+                  clear: both;
+                  .mat-icon {
+                      float: left;
+                      margin-right: 1rem;
+                  }          
+              }
+            }
+            .mat-card-content {
+              padding: 1rem 1.75rem;
+              p {
+                margin-left: 62px;
+              }
+              .mat-form-field {
+                width: 100%;
+              }
+              .mat-raised-button {
+                position: absolute;
+                right: 0;
+                bottom: -66px;
+                width: 160px;
+                height: 40px;
+                line-height: 1.4;
+                font-size: 1rem;
+                text-transform: uppercase;
+                font-weight: bold;
+                border-radius: 20px;
+              }
+              
+            }
+            tag-input {
+              .ng2-tag-input {
+                border-bottom: 0;
+              }
+              .ng2-tags-container {
+                
+                > tag { 
+                  width: 93px;
+                  height: 40px;
+                  align-content: center;
+                  justify-content: center;
+                  background-color: transparent;
+                  color: #1C1F28;
+                  &:not(.readonly):not(.tag--editing):focus {
+                    background-color: transparent;
+                    border: 1px solid #762FE6;
+                    color: #1C1F28;
+                    box-shadow: none;
+                  }
+                  &:not(.readonly):not(.tag--editing):active {
+                    background-color: transparent;
+                    border: 1px solid #762FE6;
+                    color: #1C1F28;
+                    box-shadow: none;
+                  }
+                  &:not(:focus):not(.tag--editing):not(:active):not(.readonly):hover {
+                    background-color: #762FE6;
+                    color: #fff;
+                    box-shadow: none;
+                  }
+                }
+              }              
+              
+            }
+            .mat-card-actions {
+              margin: 0;
+              padding: 0 1.75rem 1.75rem;
+            }
+          }
+        
+    }
+}

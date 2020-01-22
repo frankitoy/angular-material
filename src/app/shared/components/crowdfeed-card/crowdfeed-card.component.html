@@ -1,0 +1,102 @@
+<mat-card class="c-asks-card" *ngIf="data?.type === 'asks'">
+  <mat-card-header>
+    <a href="#" routerLink="/user/{{ data?.user_id }}/ask/{{ data?.id }}"></a>
+    <mat-card-title>
+      <mat-icon svgIcon="recs-pink"></mat-icon>                       
+      <span>Asking Recs</span>
+    </mat-card-title> 
+    <div class="c-asks-card-header_right">   
+      <div *ngIf="data?.expires_at && !isValid" class="c-asks-timer"><mat-icon svgIcon="clock"></mat-icon> {{ time }} left</div>             
+      <div class="but-menu">
+          <button mat-icon-button>
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <ng-container *ngIf="data">
+      <zpc-crowdfeed-header-card [data]="data"></zpc-crowdfeed-header-card>
+    </ng-container>
+    <p>{{ data?.description }}</p>
+  
+    <div class="c-ask-stats crowd-stats">
+        <span><mat-icon svgIcon="view"></mat-icon> {{ data?.views || 0 }}</span>
+        <span><mat-icon svgIcon="share" class="gray-icon"></mat-icon> {{ data?.shares || 0 }}</span>
+        <span><mat-icon svgIcon="people" class="gray-icon people-icon"></mat-icon> {{ data?.people || 0 }}</span>
+        <span class="rec-count"><mat-icon svgIcon="heart"></mat-icon> {{ data?.totalRecs }} RECS</span>
+    </div>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header expandedHeight="48px" collapsedHeight="48px">              
+        <mat-icon svgIcon="recs-pink"></mat-icon>                       
+        <span> Ask Recs </span>                                            
+      </mat-expansion-panel-header>
+      <div class="shareList">
+        <ul>
+          <li><mat-icon svgIcon="crowd-share"></mat-icon><span>My Crowd</span></li>
+          <li><mat-icon (click)="handleFacebookShare()" svgIcon="fb-share"></mat-icon><span>Facebook</span></li>
+          <li><mat-icon (click)="handleMessengerShare()" svgIcon="messenger"></mat-icon><span>Messenger</span></li>
+          <li><mat-icon (click)="handleWhatsAppShare('pc')" svgIcon="whatsapp"></mat-icon><span>Whatsapp</span></li>
+        </ul>
+      </div>
+
+    </mat-expansion-panel>               
+  </mat-card-actions>    
+</mat-card>
+
+<mat-card class="c-asks-card" *ngIf="data?.type === 'skills'">
+  <mat-card-header>
+    <a href="#" routerLink="/user/{{ data?.user_id }}/ask/{{ data?.id }}"></a>
+    <mat-card-title>
+      <mat-icon svgIcon="ask-rec"></mat-icon>                       
+      <span>Open to Offers</span>
+      <span class="is-open" [class.active-green]="data?.active"></span>
+    </mat-card-title> 
+    <div class="c-asks-card-header_right">   
+      <div *ngIf="data?.expires_at && !isValid" class="c-asks-timer"><mat-icon svgIcon="clock"></mat-icon> {{ time }} left</div>             
+      <div class="but-menu">
+        <button mat-icon-button>
+          <mat-icon>more_horiz</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <ng-container *ngIf="data">
+      <zpc-crowdfeed-header-card [data]="data"></zpc-crowdfeed-header-card>
+    </ng-container>
+    <p>{{ data?.description }}</p>
+  
+    <div class="c-ask-stats crowd-stats">
+      <span><mat-icon svgIcon="hand"></mat-icon> {{ data?.views || 0 }}</span>
+      <span><mat-icon svgIcon="share" class="gray-icon"></mat-icon> {{ data?.shares || 0 }}</span>
+      <span><mat-icon svgIcon="people" class="gray-icon people-icon"></mat-icon> {{ data?.people || 0 }}</span>
+      <span class="rec-count"><mat-icon svgIcon="heart"></mat-icon> {{ data?.totalRecs }} RECS</span>
+    </div>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header expandedHeight="48px" collapsedHeight="48px">              
+        <mat-icon svgIcon="ask-rec"></mat-icon>                       
+        <span> Promote </span>                                            
+      </mat-expansion-panel-header>
+      <div class="shareList">
+        <ul>
+          <li><mat-icon svgIcon="crowd-share"></mat-icon><span>My Crowd</span></li>
+          <li><mat-icon (click)="handleFacebookShare()" svgIcon="fb-share"></mat-icon><span>Facebook</span></li>
+          <li><mat-icon (click)="handleMessengerShare()" svgIcon="messenger"></mat-icon><span>Messenger</span></li>
+          <li><mat-icon (click)="handleWhatsAppShare('pc')" svgIcon="whatsapp"></mat-icon><span>Whatsapp</span></li>
+        </ul>
+      </div>
+    </mat-expansion-panel>               
+  </mat-card-actions>   
+</mat-card>
+
+
+

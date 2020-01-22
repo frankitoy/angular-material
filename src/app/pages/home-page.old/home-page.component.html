@@ -1,0 +1,18 @@
+<zpc-non-authenticated-header-top></zpc-non-authenticated-header-top>
+<section class="c-home">
+  <div class="c-home--left">
+    <div>
+      <h1>Find people & services Get recommendations</h1>
+      <h4>From people you trust.</h4>
+      <div class="c-home--form-wrap">
+        <h4>What are you looking for?</h4>
+        <zpc-new-to-zippy-crowd-section [askFormGroup]="askFormGroup" [professions]="professions$ | async" (askFormUpdated)="askFormUpdated($event)"></zpc-new-to-zippy-crowd-section>
+      </div>
+    </div>
+  </div>
+  <div class="c-home--right">
+    <div>
+      <img src="/assets/img/bg/illustration.png" alt="background illustration">
+    </div>
+  </div>
+</section>

@@ -1,0 +1,70 @@
+zpc-login-page {
+
+  .login {
+
+    background-color: $white;
+
+    .socialLogin {
+      width: 658px;
+      margin-top: 100px;
+      padding: 0px 0px 50px !important;
+      background-color: $white-darker;
+
+      .dialog-header {
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+        .close-btn{
+          float: right;
+        }
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+          height: 43px;
+          font-family: $font-family-base;
+          font-size: 33px;
+          font-weight: bold;
+          color: $dark;
+        }
+
+        .mini-divider {
+          margin-top: 17px;
+          width: 60px;
+          height: 2px;
+          border-radius: 1px;
+          background-color: $success;
+        }
+
+        .subtitle {
+          margin-top: 14px;
+          height: 60px;
+          font-family: $font-family-base;
+          font-size: 21px;
+          line-height: 1.43;
+          color: $primary-darker;
+          text-align: center;
+          span.small {
+            font-size: 16px;
+          }
+        }
+      }
+      .controls {
+        padding : 40px 140px;
+      }
+
+      .footer-content {
+        height: 42px;
+        font-family: $font-family-base;
+        font-size: 12px;
+        line-height: 1.75;
+        text-align: center;
+        color: $primary-darker;
+      }
+    }
+  }
+}

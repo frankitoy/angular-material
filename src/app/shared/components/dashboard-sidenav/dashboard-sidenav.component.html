@@ -1,0 +1,43 @@
+<div class="c-sidenav">
+
+    <a href="#" (click)="closedSideNav($event)" class="c-sidenav-close" matTooltip="Close Menu">
+        <img matListIcon src="/assets/img/icons/icon-close.svg" alt="Partner Icon"></a>
+
+<mat-nav-list class="c-sidenav-list" role="list">
+    <!-- Notification item -->
+    <mat-list-item role="listitem"  routerLinkActive="open">
+            <img matListIcon src="/assets/img/icons/ic-blog.svg" alt="Blog Icon">
+            <a matLine [routerLink]="['/blog']"> Blog </a>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLinkActive="open">
+            <img matListIcon src="/assets/img/icons/ic-faq.svg" alt="FAQ Icon">
+            <a matLine [routerLink]="['/faq']"> FAQ </a>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLinkActive="open">
+            <img matListIcon src="/assets/img/icons/ic-feedback.svg" alt="Feedback Icon">
+            <a matLine [routerLink]="['/feedback']"> Feedback </a>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLinkActive="open">
+            <img matListIcon src="/assets/img/icons/ic-partner.svg" alt="Partner Icon">
+            <a matLine [routerLink]="['/partner']"> Partner with us </a>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLinkActive="open">
+            <img matListIcon src="/assets/img/icons/ic-language.svg" alt="Language Icon">
+            <a matLine [routerLink]="['/partner']"> Language </a>
+    </mat-list-item>
+
+   
+</mat-nav-list>
+</div>
+<!-- <mat-list-item *ngFor="let n of notifications" class="notific-item" role="listitem" routerLinkActive="open">
+        <mat-icon [color]="n.color" class="notific-icon mr-1">{{n.icon}}</mat-icon>
+        <a [routerLink]="[n.route || '/dashboard']">
+            <div class="mat-list-text">
+                <h4 class="message">{{n.message}} asdadasdasd</h4>
+                <small class="time text-muted">{{n.time}}</small>
+            </div>
+        </a>
+    </mat-list-item>
+<div class="text-center mt-1" *ngIf="notifications.length">
+    <small><a href="#" (click)="clearAll($event)">Clear all notifications</a></small>
+</div> -->

@@ -1,0 +1,17 @@
+<mat-list class="side-nav-settings">
+  <mat-list-item [class.active]="active === 'profile'">
+    <a (click)="handleNavClick('profile')">Edit Profile</a>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item [class.active]="active === 'notif'">
+    <a (click)="handleNavClick('notif')">Notifications</a>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item [class.active]="active === 'social'">
+    <a (click)="handleNavClick('social')">Social Networks</a>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item [class.active]="active === 'account'">
+    <a (click)="handleNavClick('account')">Account Settings</a>
+  </mat-list-item>
+</mat-list>

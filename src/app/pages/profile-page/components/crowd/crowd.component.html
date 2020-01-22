@@ -1,0 +1,134 @@
+<div class="crowd-tab">
+  <aside class="left-rail" role="presentation">
+    <zpc-intro></zpc-intro>
+  </aside>
+  <div class="core-rail" role="main">
+    <mat-card class="card1">
+      <mat-card-header>
+        <mat-card-title>
+          Crowd F1 <span class="grey">({{ f1Crowd?.length || 0 }})</span>
+        </mat-card-title>
+        <form class="search-bar">
+          <input matInput [formControl]="searchControl" (blur)="handleSearchOnBlur()" autofocus="true" placeholder="Search by name" type="text">
+          <span class="search-icon">
+            <mat-icon role="img">search</mat-icon>
+          </span>
+        </form>
+      </mat-card-header>
+      <mat-card-content>
+        <ul class="new-count-list">
+          <li class="new-count purple-text">5 new in the last 30 days</li>
+        </ul>
+        <div class="switch-wrap">
+          Map View
+          <mat-slide-toggle
+            [formControl]="slideMap"
+            class="example-margin"
+            [color]="color"
+            [checked]="checked"
+            [dragChange]="toogleMapView()">
+          </mat-slide-toggle>
+        </div> 
+      </mat-card-content>      
+    </mat-card>
+    <mat-tab-group> 
+      <mat-tab label="All">
+        <mat-card class="card-crowdf1">
+        <mat-card-content>
+          <mat-list class="crowd-list" *ngIf="!mapChecked">
+            <zpc-app-loader *ngIf="!isLoadedF1; else loadF1" class="loader"></zpc-app-loader>
+            <ng-template #loadF1>
+              <ng-container *ngIf="f1Crowd?.length; else noF1">
+                <mat-list-item *ngFor="let f1 of f1Crowd">
+                  <div class="avatar-container">
+                    <img [src]="f1.avatar || 'assets/img/blank-user.png'" alt="user avatar">
+                  </div>
+                  <div class="list-item-content">
+                    <span class="name">{{ f1.first_name }} {{ f1.last_name }}</span>
+                    <span class="green-text">f1 <mat-icon mat-list-icon svgIcon="singletick"></mat-icon></span>
+                    <span class="count">{{ f1.rating || 'N/A' }}</span>
+                    <mat-icon mat-list-icon svgIcon="check-green" class="check-green"></mat-icon>
+                    <div class="location-wrap">
+                      <mat-icon mat-list-icon svgIcon="location" class="location"></mat-icon>
+                      <span>{{ f1.city || 'N/A' }}, {{ f1.state || 'N/A' }}</span>
+                    </div>
+                    <div class="skills-wrap">
+                      <ul class="skill-list">
+                        <li *ngFor="let skill of f1.skills"> {{ skill.title }} <span>12</span></li>
+                      </ul>
+                    </div>
+                    <p class="skills_recs"><mat-icon mat-list-icon svgIcon="recstick"></mat-icon> 22 shared f1 crowds</p>
+                  </div>
+                  <button class="btn-purple-sm" (click)="handleChat($event, f1.id)"> <mat-icon mat-list-icon svgIcon="chat-cta"></mat-icon> CHAT</button>
+                  <button mat-icon-button [matMenuTriggerFor]="menu" class="btn-menu">
+                    <mat-icon mat-list-icon svgIcon="list-menu"></mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu" class="crowd-menu">
+                    <button mat-menu-item routerLink="/user/{{f1.id}}">
+                      <span>View</span>
+                    </button>
+                    <button mat-menu-item (click)="handleRemoveF1(f1.id)" *ngIf="_relation.rel ==='owner'">
+                      <span>Remove</span>
+                    </button>
+                  </mat-menu>
+                </mat-list-item>
+              </ng-container>
+              <ng-template #noF1>
+                <p class="noF1">
+                  No F1 crowd yet. 
+                  <a class="btn-purple" (click)="openCrowdZip()">
+                      <mat-icon mat-list-icon svgIcon="plus"></mat-icon>zip to crowd
+                    </a>
+                </p>                 
+              </ng-template>
+            </ng-template>
+          </mat-list>
+          <div class="map-wrap" [hidden]="!mapChecked">
+            <div #map></div>
+          </div>
+        </mat-card-content> 
+      </mat-card>       
+      </mat-tab>
+      <mat-tab label="Top Rated">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            No top rated yet.
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Near Me">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            No result.
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <aside class="right-rail" role="presentation">
+      <mat-card class="">
+        <mat-card-content class="right-sidebar">
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="asksrecs"></mat-icon>
+            <span matLine>Ask Recs</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="getwork"></mat-icon>
+            <span matLine>Get Work</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="zipcrowd"></mat-icon>
+            <span matLine>Zip Crowd</span>
+          </mat-list-item>   
+        </mat-card-content>
+      </mat-card>
+  </aside>
+</div>

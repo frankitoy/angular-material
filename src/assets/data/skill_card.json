@@ -1,0 +1,27 @@
+{
+  "message": "OK",
+  "response": {
+    "open": 2,
+    "closed": 5,
+    "skills": [
+      {
+        "skill": "UX Designer",
+        "recommend": 36,
+        "friends": 45,
+        "new": 3
+      },
+      {
+        "skill": "Fitness Trainer",
+        "recommend": 16,
+        "friends": 2,
+        "new": 1
+      },
+      {
+        "skill": "Babysitter",
+        "recommend": 65,
+        "friends": 78,
+        "new": 0
+      }
+    ]
+  }
+}

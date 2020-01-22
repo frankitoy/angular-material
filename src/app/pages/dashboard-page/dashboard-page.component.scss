@@ -1,0 +1,64 @@
+@import '~assets/stylesheets/scss/variables';
+@import '~assets/stylesheets/scss/main';
+    
+    .p-dashboard {        
+        @extend .content-wrap;   
+        height: 100%;
+        min-height: 100vh; 
+        h4 {
+            @extend .content-width;
+            margin-top: 2rem;
+            margin-bottom: .5rem;
+            padding: 0 2rem;
+        }                
+        >div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 1.75rem 0;
+
+            >div {
+                padding: 1rem;    
+                flex: 1 1 100%;
+
+                &.o-skillrecs {
+                    @include bp-medium {
+                        flex: 0 1 43%;
+                    }
+                }
+
+                &.o-recs {                    
+                    @include bp-medium {
+                        flex: 0 1 27%;
+                    }               
+                }
+
+                &.o-reputation {                                                            
+                    @include bp-medium {
+                        flex: 0 1 25%;  
+                    }                   
+                }
+
+                &.o-mycrowd {
+                    // flex: 1 1 100%;                    
+                    width: 100%;
+                }
+                
+                &.o-skill {
+                    flex: 0 1 100%;
+                    @include bp-medium {
+                        flex: 0 1 50%;
+                    }
+                }
+
+                &.o-asks {
+                    flex: 0 1 100%;
+                    @include bp-medium {
+                        flex: 0 1 50%;
+                    }
+                }
+            }
+        }
+        
+    }

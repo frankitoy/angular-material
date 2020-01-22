@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>2B057988-30F3-4EFA-B0D2-820BC925EB27-645-000086B8F1B7703C</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="02-Dashboard---Hamburger-Expanded" transform="translate(-1210.000000, -227.000000)" stroke="#7D1CFF">
+            <g id="Side-bar" transform="translate(1180.000000, 0.000000)">
+                <g id="bottomInfo" transform="translate(0.000000, 75.000000)">
+                    <g id="partner" transform="translate(0.000000, 138.000000)">
+                        <g id="ic-partner" transform="translate(30.000000, 14.000000)">
+                            <g>
+                                <ellipse id="Oval" cx="10" cy="9.789" rx="3.455" ry="3.378"></ellipse>
+                                <path d="M12.59,7.256 L16.477,3.456" id="Shape"></path>
+                                <ellipse id="Oval" cx="17.773" cy="2.189" rx="1.727" ry="1.689"></ellipse>
+                                <ellipse id="Oval" cx="16.477" cy="16.967" rx="2.591" ry="2.533"></ellipse>
+                                <ellipse id="Oval" cx="2.227" cy="5.144" rx="1.727" ry="1.689"></ellipse>
+                                <ellipse id="Oval" cx="3.955" cy="15.7" rx="1.08" ry="1.056"></ellipse>
+                                <path d="M4.818,14.856 L7.409,12.322 M6.977,7.678 L3.955,5.988 M12.59,12.322 L14.75,14.856" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

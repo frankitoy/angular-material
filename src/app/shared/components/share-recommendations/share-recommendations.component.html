@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <ng-container *ngIf="type === 'skill'; else askRecs">
+      <mat-icon svgIcon="record_voice_over"></mat-icon>                       
+      <span> Promote Skills </span>
+    </ng-container>
+    <ng-template #askRecs>
+      <mat-icon svgIcon="recs-pink"></mat-icon>                       
+      <span> Ask Recommendations </span>
+    </ng-template>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="shareList">
+      <ul>
+        <li><mat-icon svgIcon="crowd-share"></mat-icon><span>My Crowd</span></li>
+        <li><mat-icon (click)="handleFacebookShare()" svgIcon="fb-share"></mat-icon><span>Facebook</span></li>
+        <li><mat-icon (click)="handleMessengerShare()" svgIcon="messenger"></mat-icon><span>Messenger</span></li>
+        <li><mat-icon (click)="handleWhatsAppShare('pc')" svgIcon="whatsapp"></mat-icon><span>Whatsapp</span></li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>

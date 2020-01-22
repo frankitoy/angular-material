@@ -1,0 +1,45 @@
+<div mat-dialog-content>
+  <div class="c-modal--close">
+      <button class="c-btn" type="button" (click)="handleClose()">
+        <img src="/assets/img/icons/icon-close.svg" alt="Close">
+      </button>
+  </div>
+<div class="c-modal-login">      
+  <div class="img-wrap">
+    <img [src]="photo" alt="user">
+  </div>
+  <form #mainForm novalidate [formGroup]="confirmFormGroup" (submit)="submitForm($event)">
+    <div class="row">
+     <div class="col-6">
+      <mat-form-field appearance="outline">
+        <mat-label>First name</mat-label>
+        <input 
+          matInput 
+          type="text"
+          formControlName="firstname"
+        >
+        <mat-error *ngIf="confirmFormGroup.get('firstname').hasError('required')">First name is required</mat-error>
+      </mat-form-field>
+     </div>
+     <div class="col-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input 
+          matInput 
+          type="text"
+          formControlName="lastname"
+        >
+        <mat-error *ngIf="confirmFormGroup.get('lastname').hasError('required')">Last name is required</mat-error>
+      </mat-form-field>
+     </div>
+     <mat-form-field appearance="outline" class="location-field">
+      <mat-label>Location</mat-label>
+      <input matInput type="text" [formControlName]="'location'" ngx-google-places-autocomplete #placesRef="ngx-places"
+        (onAddressChange)="handleAddressChange($event)">
+      <mat-error *ngIf="confirmFormGroup.get('location').hasError('required')">Please choose a location.</mat-error>
+    </mat-form-field>
+    <button class="confirmBtn">Confirm</button>
+    </div>
+  </form>
+</div>
+</div>

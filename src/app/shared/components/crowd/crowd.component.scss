@@ -1,0 +1,112 @@
+.mat-card {
+  height: 100%;  
+  display: flex;
+  flex-direction: column;
+
+  .mat-card-header {
+      flex: 0 0 64px;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-transform: uppercase;
+      text-align: center;
+      .mat-card-header-text {
+          margin: 0 auto;
+      }
+      .mat-card-actions {
+          margin: 0 16px;
+      }
+  } 
+  .mat-card-content {
+      flex: 1;
+  }   
+  .mat-card-content + .mat-card-actions {
+      text-align: center;
+      button {
+          margin-bottom: 2rem;
+      }
+  }   
+  button {
+      height: 35px;
+      border-radius: 17.5px;
+      background-color: #7D1DFD;
+      color: white;
+  }
+}
+
+.o-mycrowd--heading {
+  padding: 1rem;
+  h6 {
+    font-size: 1.125rem;
+    margin: 0;
+    color: #6C80A1;
+    display: inline;
+
+    &+ span {
+      color: #354052;                               
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  .new {
+    color: #1AB169;
+    font-size: 14px;
+    font-weight: 500;
+    padding: .185em .45em;
+    border-radius: 12.5px;
+    background-color: rgba(26,177,105,0.2);
+  }
+  a {
+    color: #1AB169;
+    float: right;
+    font-size: 14px;
+  }
+
+}
+.o-mycrowd--list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .noCrowd {
+    color: #6C80A1;
+    font-size: 14px;
+  }
+}
+
+.c-user-avatar {
+  margin: .25rem 1.25rem;
+  &--badge {                             
+      background-color: #F8718F;      
+      color: #FFFFFF;                                                    
+  }
+}
+.mat-tab-group {
+  min-height: 150px;
+}
+.mat-tab-header {
+  //border-bottom: 0;
+  margin-bottom: 1rem;
+}
+.mat-tab-label {
+  color: #B0BAC5;
+  &.mat-tab-label-active {
+      color: #762FE6;
+      font-weight: bold;
+  }
+}  
+
+::ng-deep .mat-tab-list .mat-tab-labels > div:last-child {
+  margin-left: auto;
+  opacity: 1;
+  margin-bottom: 1em;
+  padding-right: 0;
+
+  button {
+    background-color: #1ab169;
+  }
+}

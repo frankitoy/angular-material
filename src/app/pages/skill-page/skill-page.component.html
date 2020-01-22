@@ -1,0 +1,58 @@
+<div class="p-ask">
+  <div>
+    <div class="core-rail" role="main">
+      <zpc-ask-card *ngIf="skill && _relation" [ask]="skill" [type]="'skill'" [relation]="_relation?.rel"></zpc-ask-card>
+      <mat-card class="total-recommendations">{{ totalRecs }} recommendations received</mat-card>
+      <mat-accordion *ngIf="recommendations && _relation">
+        <ng-container *ngFor="let rec of recommendations">
+          <mat-expansion-panel (opened)="panelState(rec?.id, true)" (closed)="panelState(rec?.id, false)">
+            <mat-expansion-panel-header [collapsedHeight]="'120px'" [expandedHeight]="'120px'">
+              <mat-panel-title>
+                <zpc-recommendation-header
+                  [type]="'child'"
+                  [id]="rec?.id"
+                  [title]="title"
+                  [routeType]="'skill'"
+                  [relation]="_relation?.rel"
+                  [recsCount]="rec?.child.length"
+                  [firstName]="firstName"></zpc-recommendation-header>
+              </mat-panel-title>
+              <mat-panel-description>
+                <ng-container *ngIf="!rec.state; else openList">
+                  View all {{ rec?.child.length }} recommendations
+                </ng-container>
+                <ng-template #openList>
+                  Hide recommendations
+                </ng-template>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-expansion-panel-content>
+              <div class="panel-content">
+                <zpc-recommendation-header 
+                  *ngFor="let child of rec?.child" 
+                  [type]="'parent'"
+                  [id]="child.id"
+                  [title]="title"
+                  [date]="child.date"
+                  [routeType]="'skill'"
+                  [relation]="_relation?.rel"></zpc-recommendation-header>
+              </div>
+            </mat-expansion-panel-content>
+          </mat-expansion-panel>
+        </ng-container>
+      </mat-accordion>
+    </div>
+    <aside class="right-rail" role="presentation">
+      <div *ngIf="skill?.user_id">
+        <zpc-share-recommendations [userId]="skill?.user_id" [type]="'skill'"></zpc-share-recommendations>
+      </div>
+      <div *ngIf="skillStats" class="stats">
+        <zpc-stats [stats]="skillStats" [recs]="totalRecs"></zpc-stats>
+      </div>
+      <div *ngIf="title && _relation?.rel !== 'guest'" class="ask-crowd">
+        <zpc-crowds [type]="'asks'" [term]="title"></zpc-crowds>
+      </div>
+    </aside>
+  </div>
+</div>
+   

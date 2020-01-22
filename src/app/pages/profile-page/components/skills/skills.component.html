@@ -1,0 +1,135 @@
+<div class="p-skills">
+  <aside class="left-rail" role="presentation">
+    <zpc-intro></zpc-intro>
+  </aside>
+  <div class="core-rail" role="main">
+    <mat-card class="p-skills--info">
+      <mat-card-header>
+        <mat-card-title><mat-icon mat-list-icon svgIcon="skillicon"></mat-icon>SKILL CARDS </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="reddot"></mat-icon>
+            5 new recs
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="reddot"></mat-icon>
+            20 new boosts
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-tab-group dynamicHeight class="p-skills--tabs">
+      <mat-tab label="Open to offers">
+        <!-- <h5>OPEN SKILLS CARD</h5> -->
+        <div class="p-skills--tabs-content">
+
+          <mat-card *ngFor="let skill of skillsOpen">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon mat-list-icon svgIcon="offer"></mat-icon>
+                <mat-slide-toggle labelPosition='before' *ngIf="_relation.rel === 'owner'"
+                            [checked]="skill.active"                
+                            (toggleChange)="handleOpenToOffers()">Open to offers</mat-slide-toggle>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div mat-card-avatar>
+                <img [src]="user.avatar || 'assets/img/blank-user.png'" alt="user avatar">
+              </div> 
+              <h5>{{user.first_name}} {{user.last_name}}</h5>
+              <p class="recs-count">999</p>
+              <span class="split"><i></i></span>
+              <h5 class="skills-title">{{skill.title}}</h5>
+              <span class="p-skills_recs">25 Recs</span>
+              <p>
+                <span *ngIf="skill.location" class="p-skills_location">
+                  <mat-icon svgIcon="location">location_on</mat-icon> <span>{{skill.location}}</span>
+                </span>
+              </p>
+              <p class="skills_recs"><mat-icon mat-list-icon svgIcon="recstick"></mat-icon> 22 shared f1 crowds</p>
+              <!-- <p>{{skill.description || 'no description'}}</p> -->
+            </mat-card-content>
+            <mat-card-actions>
+              <!-- <button mat-button (click)="handleRedirect(skill.id)">View</button> -->
+              <button mat-button>PROMOTE</button>
+            </mat-card-actions>
+          </mat-card>
+
+          <mat-card class="add-button" *ngFor="let i of [].constructor(showAddMore)">
+            <button mat-button (click)="handleOpenSkillCard()">
+              <mat-icon>add</mat-icon> Add New Skill
+            </button>
+          </mat-card>
+        </div>
+      </mat-tab>
+      <mat-tab label="Closed to Offers">
+          
+          <div class="p-skills--tabs-content">
+            <mat-card *ngFor="let skill of skillsClose">
+                <mat-card-header>
+                  <mat-card-title>
+                    <mat-icon mat-list-icon svgIcon="offer"></mat-icon>
+                    <mat-slide-toggle labelPosition='before' *ngIf="_relation.rel === 'owner'"
+                                [checked]="skill.active"                
+                                (toggleChange)="handleOpenToOffers()">Open to offers</mat-slide-toggle>
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <div mat-card-avatar>
+                    <img [src]="user.avatar || 'assets/img/blank-user.png'" alt="user avatar">
+                  </div> 
+                  <h5>{{user.first_name}} {{user.last_name}}</h5>
+                  <p class="recs-count">999</p>
+                  <span class="split"><i></i></span>
+                  <h5 class="skills-title">{{skill.title}}</h5>
+                  <span class="p-skills_recs">25 Recs</span>
+                  <p>
+                    <span *ngIf="skill.location" class="p-skills_location">
+                      <mat-icon svgIcon="location">location_on</mat-icon> <span>{{skill.location}}</span>
+                    </span>
+                  </p>
+                  <p class="skills_recs"><mat-icon mat-list-icon svgIcon="recstick"></mat-icon> 22 shared f1 crowds</p>
+                  <!-- <p>{{skill.description || 'no description'}}</p> -->
+                </mat-card-content>
+                <mat-card-actions>
+                  <!-- <button mat-button (click)="handleRedirect(skill.id)">View</button> -->
+                  <button mat-button>PROMOTE</button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <aside class="right-rail" role="presentation">
+    <div>
+      <mat-card class="">
+        <!-- <mat-card-header>
+          <mat-card-title>
+
+          </mat-card-title>
+        </mat-card-header> -->
+        <!-- <mat-list>
+          <mat-list-item class="profile-wrap">
+          </mat-list-item>
+        </mat-list> -->
+        <mat-card-content class="right-sidebar">
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="asksrecs"></mat-icon>
+            <span matLine>Ask Recs</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="getwork"></mat-icon>
+            <span matLine>Get Work</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="zipcrowd"></mat-icon>
+            <span matLine>Zip Crowd</span>
+          </mat-list-item>   
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </aside>
+</div>

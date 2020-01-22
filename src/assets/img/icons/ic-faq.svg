@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>5A989A63-7BB1-4E54-8B84-D3744C7D91AD-645-000086B8F154712A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02-Dashboard---Hamburger-Expanded" transform="translate(-1210.000000, -135.000000)">
+            <g id="Side-bar" transform="translate(1180.000000, 0.000000)">
+                <g id="bottomInfo" transform="translate(0.000000, 75.000000)">
+                    <g id="faq" transform="translate(0.000000, 46.000000)">
+                        <g id="ic-faq" transform="translate(30.000000, 14.000000)">
+                            <g>
+                                <circle id="Oval" stroke="#7D1CFF" cx="10" cy="10" r="9.5"></circle>
+                                <path d="M10,12.478 L10,11.818 C10,10.95 10.454,10.124 11.24,9.67 C12.437,8.967 12.85,7.48 12.148,6.283 C11.446,5.085 9.958,4.672 8.761,5.373 C8.017,5.828 7.521,6.613 7.521,7.522" id="Shape" stroke="#7D1CFF"></path>
+                                <circle id="Oval" fill="#7D1CFF" fill-rule="nonzero" cx="10" cy="14.543" r="1"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

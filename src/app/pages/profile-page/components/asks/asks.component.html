@@ -1,0 +1,121 @@
+<div>
+  <aside class="left-rail" role="presentation">
+    <zpc-intro></zpc-intro>
+  </aside>
+  <div class="core-rail" role="main">
+    <!--{{_relation.rel}}
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          NEED SOMETHING DONE?
+        </mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content class="p-ask-askRecs">
+        <p>
+          Why hire a stranger?
+          <button mat-button [routerLink]="['/ask-details']" routerLinkActive="active">
+            <mat-icon svgIcon="recs-pink"></mat-icon>
+            <span> Ask Recs </span>
+          </button>
+        </p>
+      </mat-card-content>
+    </mat-card>
+    -->
+    <mat-card class="p-asks--info">
+        <mat-card-header>
+          <mat-card-title><mat-icon mat-list-icon svgIcon="recs-pink"></mat-icon>ASKS <span class="asks-count">(21)</span></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="reddot"></mat-icon>
+              5 New recs in the last 30 days
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-tab-group dynamicHeight class="p-skills--tabs">
+        <mat-tab label="Open">
+            <mat-card class="c-asks-list" [ngStyle]="{ 'padding-bottom': isShowMoreHidden ? '0' : '.75rem' }">
+              <zpc-app-loader *ngIf="!isLoaded; else asksLoaded"></zpc-app-loader>
+              <ng-template #asksLoaded>
+                <mat-card-content>
+                  <ng-container *ngIf="offset; else noAskLists">
+                    <zpc-ask-card *ngFor="let ask of asksLists" [relation]="_relation.rel" [ask]="ask" (archive)="archiveClick($event)"></zpc-ask-card>
+                  </ng-container>
+                  <ng-template #noAskLists>
+                    <p class="text-center">No Asks yet.</p>
+                  </ng-template>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <mat-card-actions *ngIf="!isShowMoreHidden">
+                  <button *ngIf="!isLoadingAsks; else loadingData" (click)="getAsks(userId, offset, limit)" mat-button>
+                    <span> Show More </span>
+                  </button>
+                  <ng-template #loadingData>
+                    <p class="loading">Loading...</p>
+                  </ng-template>
+                </mat-card-actions>
+              </ng-template>
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="Closed">
+          <div class="example-large-box mat-elevation-z4">
+            closed
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+  </div>
+
+  <aside class="right-rail" role="presentation">
+      <mat-card class="">
+        <mat-card-content class="right-sidebar">
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="asksrecs"></mat-icon>
+            <span matLine>Ask Recs</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="getwork"></mat-icon>
+            <span matLine>Get Work</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="zipcrowd"></mat-icon>
+            <span matLine>Zip Crowd</span>
+          </mat-list-item>   
+        </mat-card-content>
+      </mat-card>
+  </aside>
+</div>
+
+<!--
+  <mat-card class="c-asks-list" [ngStyle]="{ 'padding-bottom': isShowMoreHidden ? '0' : '.75rem' }">
+              <zpc-app-loader *ngIf="!isLoaded; else asksLoaded"></zpc-app-loader>
+              <ng-template #asksLoaded>
+                <mat-card-header>
+                  <mat-card-title>
+                    ASKS ({{ offset }})
+                  </mat-card-title>
+                </mat-card-header>
+                <mat-divider></mat-divider>
+                <mat-card-content>
+                  <ng-container *ngIf="offset; else noAskLists">
+                    <zpc-ask-card *ngFor="let ask of asksLists" [ask]="ask" (archive)="archiveClick($event)"></zpc-ask-card>
+                  </ng-container>
+                  <ng-template #noAskLists>
+                    <p class="text-center">No Asks yet.</p>
+                  </ng-template>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <mat-card-actions *ngIf="!isShowMoreHidden">
+                  <button *ngIf="!isLoadingAsks; else loadingData" (click)="getAsks(userId, offset, limit)" mat-button>
+                    <span> Show More </span>
+                  </button>
+                  <ng-template #loadingData>
+                    <p class="loading">Loading...</p>
+                  </ng-template>
+                </mat-card-actions>
+              </ng-template>
+            </mat-card>
+-->

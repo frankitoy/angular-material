@@ -1,0 +1,44 @@
+<div>
+  <mat-toolbar class="topbar topbar-white">
+    <div class="navbar" fxLayout="row" fxLayoutAlign="row center">
+      <div class="links">
+        <div class="nav-item"><div class="zpc-new-to-zippycrowd mat-body">New to ZippyCrowd?</div></div>
+        <div class="nav-item"><a class="zpc-home-get-started-link mat-body" mat-raised-button>GET STARTED</a></div>
+        <div class="nav-item"><div class="mat-body">or</div></div>
+        <div class="nav-item"><a class="zpc-home-login-link mat-body" mat-raised-button color="primary" routerLink="/login">Log in</a></div>
+        <button mat-mini-fab color=""><mat-icon aria-label="menu" color="primary">menu_rounded</mat-icon></button>
+        <!--<div class="nav-item"><button mat-icon-button class="topbar-button-right img-button"><img src="/assets/icons/ic-bars.svg" class="ic-menu"></button></div>-->
+      </div>
+    </div>
+  </mat-toolbar>
+  <div fxLayout="row wrap" class="new-to-zippy-crowd-form-container">
+    <div class="content" style="width: 100%;background: #f1f5f9 !important;">
+      <div class="header">
+        <div class="ack-bg"></div>
+        <div class="title" style="font-size: 35px;"><h1 class="mat-h1">Recommendations.</h1></div>
+        <div class="subtitle">
+          <div class="vert-line"></div>
+          People you need from people you trust.
+        </div>
+      </div>
+      <div class="info">
+        <div class="info-icon">
+          <img src="/assets/icons/z-logo.svg" alt="zippy icon">
+        </div>
+        <div class="info-card">
+          <div class="card">
+            <div class="card-body">
+              Ask friends to recommend.<br/>Free. With no middleman.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form"><zpc-ask-form [professions]="professions" *ngIf="professions" (askFormUpdated)="formUpdated($event);"></zpc-ask-form></div>
+      <div class="free-icons">
+        <img src="/assets/icons/astronaut.svg" alt="Astronaut" class="astronaut">
+        <img src="/assets/icons/hacker.svg" alt="Hacker" class="hacker">
+        <img src="/assets/icons/photographer.svg" alt="Photographer" class="photographer">
+      </div>
+    </div>
+  </div>
+</div>

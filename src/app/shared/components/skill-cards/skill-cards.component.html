@@ -1,0 +1,37 @@
+<mat-card class="o-skill-card">
+  <zpc-app-loader *ngIf="!isLoaded; else skillItemsLoaded"></zpc-app-loader>
+  <ng-template #skillItemsLoaded>
+    <mat-card-header>
+      <mat-card-title>Skill Cards</mat-card-title>
+      <p><span>{{ open }} Open /</span> <span> {{ closed }} Closed</span></p>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list role="list">
+        <ng-container *ngIf="skillCards.length; else noSkills">
+          <a class="skillItems" mat-list-item *ngFor="let skill of skillCards" routerLink="/profile/skills">
+            <h4 mat-line>{{ skill.skill }}</h4>
+            <div mat-line>
+              <div class="recs">
+                <img src="/assets/icons/ic-rec.svg" alt="ic rec logo">
+                <span><span>{{ skill.recommend }}</span> Recs</span>
+              </div>
+              <div class="friends">
+                <img src="/assets/icons/ic-friends.svg" alt="ic friends logo">
+                <span><span>{{ skill.friends }}</span> Friends</span>
+              </div>
+              <div class="new" *ngIf="skill.new">
+                <span>+ {{ skill.new }} New</span>
+              </div>
+            </div>
+          </a>
+        </ng-container> 
+        <ng-template #noSkills>
+          <p class="noSkills">No Skills yet.</p>
+        </ng-template>
+        <a class="addSkill" mat-list-item routerLink="/profile/skills">
+          <p mat-line><span>+</span> Add New Skill</p>
+        </a>
+      </mat-list> 
+    </mat-card-content>
+  </ng-template>
+</mat-card>

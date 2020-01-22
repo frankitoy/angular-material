@@ -1,0 +1,52 @@
+<form #mainForm novalidate [formGroup]="askFormGroup" (submit)="submitForm($event)">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Profession</mat-label>
+      <input matInput aria-label="I'm looking for" matInput placeholder="I'm looking for" type="text"
+        [formControlName]="'profession'" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option}}</mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="askFormGroup.get('profession').hasError('required')">Please choose a profession</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>{{ checked ? 'Any city' : 'Location' }}</mat-label>
+      <input matInput type="text" [formControlName]="'location'" ngx-google-places-autocomplete #placesRef="ngx-places"
+        (onAddressChange)="handleAddressChange($event)">
+      <div matSuffix>
+        <mat-slide-toggle class="ask-form-slide-toggle-field" [color]="slideToggleColor" [checked]="checked"
+          formControlName="anyLocation" (toggleChange)="toggleChange()">
+          <mat-placeholder class="placeholder hide">Any location</mat-placeholder>
+        </mat-slide-toggle>
+      </div>
+      <mat-error *ngIf="askFormGroup.get('location').hasError('required')">Please choose a location.</mat-error>
+    </mat-form-field>
+
+  </div>
+  <div *ngIf="enabledAdditionalDetails">
+    <mat-form-field appearance="outline">
+      <mat-label>Additional details (Optional)</mat-label>
+      <input matInput #additionalDetails aria-label="Additional details (Optional)"
+        placeholder="Additional details (Optional)" type="text" [formControlName]="'additionalDetails'" maxlength="150">
+      <mat-hint align="end">{{additionalDetails.value.length}} / 150</mat-hint>
+    </mat-form-field>
+  </div>
+  <div *ngIf="enabledAdditionalDetails">
+    Need to find by
+    <tag-input [placeholder]="'Need to find by'" [disable]="false" [editable]="false" [removable]="false"
+      [hideForm]="true" [formControlName]="'durationNeededBy'" (onSelect)="handleDurationNeededBy($event)" name="items">
+    </tag-input>
+  </div>
+  <div *ngIf="enabledAdditionalDetails; then postNow else getRecommendations"></div>
+  <ng-template #postNow>
+    <button mat-raised-button color="primary" type="submit" matStepperNext>Confirm</button>
+  </ng-template>
+  <ng-template #getRecommendations>
+    <button mat-raised-button class="btn--sm btn--primary" type="button" (click)="handleOpenAskRec()"><img src="/assets/img/icons/ic-ask.svg"
+        alt="Ask for recommendations">
+      <span class="btn-text">Get Recommendations</span>
+    </button>
+  </ng-template>
+</form>

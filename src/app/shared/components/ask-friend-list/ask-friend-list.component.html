@@ -1,0 +1,50 @@
+<div mat-dialog-content>
+  <div class="c-modal--close">
+      <button class="c-btn" type="button" (click)="cancel()">
+        <img src="/assets/img/icons/icon-close.svg" alt="Close">
+      </button>
+  </div>
+  <div class="c-modal-ask">
+    <img src="/assets/img/logo.svg" class="c-modal-ask--logo" alt="Logo">
+    <div class="c-modal-ask--header">
+      <h2>Ask My Crowd</h2>
+      <!-- <h6>{{ totalFriends }} friends in My Crowd who can help</h6> -->
+    </div>
+    <div mat-dialog-content  class="c-modal-ask--content">
+      <mat-tab-group [selectedIndex]="0">
+        <mat-tab label="My Crowd ({{totalFriends}})">
+          <div *ngIf="totalFriends > 0;else no_friends">
+            <div class="c-modal-ask--content" cdkFocusInitial>
+              <input matInput type="search" placeholder="Type friend’s name from your crowd to ask" aria-label="Name" [matAutocomplete]="auto" [formControl]="findUsersCtrl">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let user of filteredUsers | async" [value]="user.first_name">
+                  <span>{{ user.first_name }} {{ user.last_name }}</span> |
+                </mat-option>
+              </mat-autocomplete>
+              <mat-selection-list #shoes>
+                <mat-list-option *ngFor="let user of filteredUsers | async" [value]="user.first_name">
+                 <!--  User card - TODO: componenet -->
+                  <mat-card class="o-userCard userModal">
+                    <mat-card-header >
+                      <div mat-card-avatar>
+                        <img mat-card-avatar [attr.src]="user.avatar" alt="user avatar">
+                      </div>
+                      <mat-card-title>{{ user.first_name }} {{ user.last_name }} </mat-card-title>
+                    </mat-card-header>
+                  </mat-card>
+                </mat-list-option>
+              </mat-selection-list>
+              <button mat-button mat-raised-button color="primary">Ask My Crowd</button>
+            </div>
+          </div>
+          <ng-template #no_friends>
+            <p>Oops... It looks like you don't have Zippy Crowd Friends yet.</p>
+            <p>So, let's invite!</p>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="Facebook Friends (23)"> Facebook Friends list goes here </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div></div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+h3 {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 0px 0 8px 0;
+}
+.social-list {
+  color: #313541;
+  img {
+    margin-right: 12px;
+  }
+  .link {
+    color: #fff;
+    background: #762FE6;
+    border-radius: 100px;
+    line-height: 22px;
+    cursor: pointer;
+    border: none;
+    padding: 2px 28px;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    font-size: 0.875rem;
+  }
+  .form-group {
+    position: absolute;
+    right: 0;
+    input {
+      border: 1px solid #E6E6E6;
+      border-radius: 4px;
+      line-height: 22px;
+      font-size: 0.875rem;
+      color: #000;
+      padding: 0 7px;
+    }
+    .submit {
+      background: none;
+      border: none;
+      color: #762FE6;
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+  }
+  .close {
+    background: none;
+    border: none;
+    color: #000;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+  }
+  .social-content {
+    position: absolute;
+    right: 0;
+    p {
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+    }
+  }
+  .mat-list-item {
+    font-size: 0.875rem !important;
+  }
+}

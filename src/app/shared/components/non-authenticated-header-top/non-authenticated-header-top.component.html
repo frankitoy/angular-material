@@ -1,0 +1,37 @@
+<header role="banner">
+  <div class="o-header">
+    <a routerLink="/profile/about" class="o-header-logo" title="ZippyCrowd">
+      <img src="/assets/img/z-logo-home.svg" alt="ZippyCrowd Logo"/>
+    </a> 
+    <nav class="o-header-nav">
+      <ul>
+        <li>
+          <button class="btn--sm log-in" (click)="openLoginDialog()" *ngIf="!isAuth">Log in</button>
+          <div class="app-admin-wrap" *ngIf="isAuth">
+            <mat-sidenav-container>
+              <div class="main-content-wrap">
+                <zpc-header-side [dashboardsidenavPanel]="dashboardsidenavPanel">
+                </zpc-header-side>
+                <div>
+                  <div class="view-loader" *ngIf="isModuleLoading">
+                    <div class="spinner">
+                      <div class="double-bounce1 mat-bg-accent"></div>
+                      <div class="double-bounce2 mat-bg-primary"></div>
+                    </div>
+                  </div>
+                  <router-outlet></router-outlet>
+                </div>
+              </div>
+              <div class="sidebar-backdrop" (click)="closeSidebar()"></div>
+              <mat-sidenav #dashboardsidenavPanel mode="over" class="" position="end">
+                <div class="navigation-hold" fxLayout="column">
+                  <zpc-dashboardsidenav [dashboardsidenavPanel]="dashboardsidenavPanel"></zpc-dashboardsidenav>
+                </div>
+              </mat-sidenav>
+            </mat-sidenav-container>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

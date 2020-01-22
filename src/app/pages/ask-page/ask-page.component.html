@@ -1,0 +1,88 @@
+
+<h2 class="p-title">See who is recommended to your Ask</h2>
+<div class="p-ask">
+  <div>
+    <div class="core-rail" role="main">
+      <zpc-ask-card [ask]="ask"></zpc-ask-card>
+      <mat-card class="total-recommendations">{{ totalRecs }} recommendations received</mat-card>
+      <mat-accordion>
+        <ng-container *ngFor="let rec of recommendations">
+          <mat-expansion-panel (opened)="panelState(rec?.id, true)" (closed)="panelState(rec?.id, false)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <zpc-recommendation-header [type]="'parent'" [id]="rec?.id" [title]="title"></zpc-recommendation-header>
+              </mat-panel-title>
+              <mat-panel-description>
+                <ng-container *ngIf="!rec.state; else openList">
+                  View all {{ rec?.child.length }} recommendations
+                </ng-container>
+                <ng-template #openList>
+                  Hide recommendations
+                </ng-template>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="panel-content">
+              <zpc-recommendation-header *ngFor="let child of rec?.child" [type]="'child'" [id]="child.id" [title]="title" [date]="child.date"></zpc-recommendation-header>
+            </div>
+          </mat-expansion-panel>
+        </ng-container>
+      </mat-accordion>
+    </div>
+    <aside class="right-rail" role="presentation">
+      <div *ngIf="ask?.user_id">
+        <zpc-share-recommendations [userId]="ask?.user_id"></zpc-share-recommendations>
+      </div>
+      <div *ngIf="askStats" class="stats">
+        <zpc-stats [stats]="askStats" [recs]="totalRecs"></zpc-stats>
+      </div>
+      <div *ngIf="title && _relation?.rel !== 'guest'" class="ask-crowd">
+        <zpc-crowds [type]="'skills'" [term]="title"></zpc-crowds>
+      </div>
+    </aside>
+  </div>
+</div>   
+  <section class="content-wrap">
+      <div class="c-swiper">        
+        <div class="content-container">
+          <swiper class="swiper-container"  [(index)]="index" [config]="config" (indexChange)="onIndexChange($event)" (swiperTransitionStart)="onSwiperEvent('transitionStart')" (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+              <mat-card class="c-ask-user">
+
+                  
+                    <mat-card-header >
+                     
+                      <mat-card-title>title</mat-card-title>
+                      <mat-card-subtitle> sub title</mat-card-subtitle>
+                      </mat-card-header>
+                  
+                </mat-card>
+            <mat-card class="suggestion-card">
+                  <mat-card-header>
+                      <div mat-card-avatar>
+                        <img alt="user avatar" src="https://graph.facebook.com/716391131822307/picture?type=normal">
+                      </div>
+                      <mat-card-title>Name</mat-card-title>
+                      <mat-card-subtitle>Skill , location</mat-card-subtitle>
+                    </mat-card-header>
+              </mat-card>
+              <mat-card class="suggestion-card">Card 2</mat-card>
+              <mat-card class="suggestion-card">Card 3</mat-card>
+              <mat-card class="suggestion-card">Card 4</mat-card>
+              <mat-card class="suggestion-card">Card 5</mat-card>
+              <mat-card class="suggestion-card">Card 6</mat-card>
+              <mat-card class="suggestion-card">Card 7</mat-card>
+              <mat-card class="suggestion-card">Card 8</mat-card>           
+            </swiper>
+          <!-- <swiper class="swiper-container" [config]="config" (indexChange)="onIndexChange($event)" (swiperTransitionStart)="onSwiperEvent('transitionStart')" (swiperTransitionEnd)="onSwiperEvent('transitionEnd')">
+              <div *ngFor="let slide of slides" class="swiper-slide">
+                <div>
+                  {{slide}}
+                </div>
+              </div>
+            </swiper>
+
+            <div class="swiper-button-prev" ></div>
+            <div class="swiper-button-next"></div> -->
+        </div>         
+      </div>  
+  </section>
+   

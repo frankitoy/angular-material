@@ -1,0 +1,106 @@
+<mat-card class="c-asks-card">
+    <mat-card-header>
+      <a href="#" *ngIf="type !== 'skill'" routerLink="/user/{{ ask?.user_id }}/ask/{{ ask?.id }}"></a>
+      <mat-card-title *ngIf="type !== 'skill'; else skillCard">
+        <mat-icon svgIcon="recs-pink"></mat-icon>                     
+        <span> Asking Recs </span>
+      </mat-card-title>
+      <ng-template #skillCard>
+        <ng-container *ngIf="relation === 'owner'; else others">
+          <mat-card-title>
+            <mat-icon svgIcon="recs-pink"></mat-icon>                     
+            <span> Open to Offers</span>
+          </mat-card-title>
+        </ng-container>
+        <ng-template #others>
+          <mat-card-title>
+            <mat-icon svgIcon="recs-pink"></mat-icon>                     
+            <span> {{ firstName | titlecase }}'s Skill Card</span>
+          </mat-card-title>
+        </ng-template>
+      </ng-template>
+      
+      <div *ngIf="type !== 'skill'">{{ ask?.created_at | date:'mediumDate' }}</div>
+      <div *ngIf="type === 'skill' && relation === 'owner'">
+        <mat-slide-toggle
+          class="skillToggle"
+          color="'#1AB169'"
+          [checked]="checked"
+        >
+        </mat-slide-toggle>
+      </div>  
+      
+      <div class="c-asks-card-header_right">   
+        <span class="clock"><mat-icon svgIcon="clock"></mat-icon>  2 weeks</span>
+        <div *ngIf="ask?.expires_at && !isValid" class="c-asks-timer"><mat-icon svgIcon="clock"></mat-icon> {{ time }} left</div>
+        <div *ngIf="type === 'skill' && relation !== 'owner'" class="offerStatus">
+          Open to offers <span class="active"></span>
+        </div> 
+        <div *ngIf="relation === 'owner' || relation === null" class="but-menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_horiz</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="archiveClick(ask?.id)">
+                  <!-- <mat-icon>delete</mat-icon> -->
+                  <span>Archive</span>
+                </button>
+                <!-- <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voicemail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button> -->
+              </mat-menu>
+        </div>
+      </div>
+      
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <!-- <mat-card class="o-userCard"  *ngIf="user"> -->
+      <ng-container *ngIf="ask">
+        <zpc-ask-card-header [ask]="ask" [type]="type" [relation]="relation"></zpc-ask-card-header>
+      </ng-container>
+      <!-- End of User card -->
+      <p>{{ ask?.description }}</p>
+      <mat-chip-list class="tagsContainer" *ngIf="type === 'skill' && tags.length">
+        <mat-chip *ngFor="let tag of tags">{{ tag | titlecase }}</mat-chip>
+      </mat-chip-list>
+      <span class="seemore">..see more</span>
+      <div class="c-ask-stats">
+          <span><mat-icon svgIcon="view" class="view"></mat-icon> {{ ask?.views || 0 }}</span>
+          <span><mat-icon svgIcon="sharecard" class="sharecard"></mat-icon> {{ ask?.shares || 0 }}</span>
+          <span><mat-icon svgIcon="users" class="users"></mat-icon> {{ ask?.users || 0 }}</span>
+        <span> 
+          <span>
+            <mat-icon svgIcon="favred"></mat-icon> {{ ask?.recs || 0 }} Recs</span></span>
+      </div>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header expandedHeight="48px" collapsedHeight="48px">
+          <ng-container *ngIf="type === 'skill'; else askRecs">
+            <mat-icon svgIcon="record_voice_over"></mat-icon>
+            <span> Promote to friends </span>
+          </ng-container>
+          <ng-template #askRecs>
+            <mat-icon svgIcon="recs-pink"></mat-icon>
+            <span> Ask Recs </span>
+          </ng-template>
+        </mat-expansion-panel-header>
+        <div class="shareList">
+          <ul>
+            <li><mat-icon svgIcon="crowd-share"></mat-icon><span>My Crowd</span></li>
+            <li><mat-icon (click)="handleFacebookShare()" svgIcon="fb-share"></mat-icon><span>Facebook</span></li>
+            <li><mat-icon (click)="handleMessengerShare()" svgIcon="messenger"></mat-icon><span>Messenger</span></li>
+            <li><mat-icon (click)="handleWhatsAppShare('pc')" svgIcon="whatsapp"></mat-icon><span>Whatsapp</span></li>
+          </ul>
+        </div>
+
+      </mat-expansion-panel>               
+    </mat-card-actions>    
+  </mat-card>  

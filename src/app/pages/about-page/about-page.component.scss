@@ -1,0 +1,112 @@
+// Import the necessary scss files here
+@import '~assets/stylesheets/scss/variables';
+@import '~assets/stylesheets/scss/main';
+
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 4rem;
+    .c-doc-header {
+        position: relative;
+        padding:  2rem;
+        background: #7D2BF0 url(/assets/img/bg/heroboax.svg) no-repeat;
+        background-size: cover;
+        color: #fff;
+        >* {
+            @extend .content-wrap; 
+        }
+        h1 {
+            padding: 0 1rem;
+            @media (max-width: 768px) {
+                font-size: 1.75rem;
+            }
+        }
+        p {
+            padding-bottom: 1rem;
+        }
+    }
+    section {
+        @extend .content-wrap; 
+        padding-top: 2rem;
+        h4 {
+            font-weight: bold;
+        }
+        p span {
+            font-weight: bold;
+            color: #1AB169;
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+            display: block;
+        }
+    }
+    .c-footer {
+        width: 100%;
+        z-index: 90;
+        background: #4D17BC;
+        > p {
+          line-height: 1.5;
+          font-size: .875rem;
+          color: #fff;
+          padding-bottom: 3.35rem;
+          margin: 0 2rem;
+        }
+        &--content {
+          @extend .content-width; 
+          padding: 1rem 2rem;
+          
+          @include bp-large {
+            padding: 3.35rem 1rem 0;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+          }
+         .mat-nav-list { 
+            h5 {
+              font-weight: bold;
+              font-size: 18px;
+              color: #FEFEFE; 
+              padding: 0 1rem;
+            }     
+            .mat-list-item {
+              color: rgba(255, 255, 255, 0.7);
+              height: 2.5rem;                          
+            }   
+    
+            &:first-child {
+              
+              // display: flex;
+              // flex-direction: row;
+              // flex-wrap: wrap;
+              // @include bp-large {
+              //   width: 25%;
+              // }
+              .mat-list-item {
+                height: unset;            
+                &:last-child {
+    
+                  .mat-list-item-content {
+                    flex-wrap: wrap;
+                     height: 100%;
+                     align-items: flex-end;
+                    p {
+                      font-size: .75rem;
+                      margin: 0;
+                    }
+                  }
+                }
+              }
+              
+                                    
+            }   
+    
+          }
+          
+          .zippycrowd-logo {
+            // height: 44px;
+             padding-top: 1.67rem;
+           }
+        }  
+      }
+}

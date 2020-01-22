@@ -1,0 +1,79 @@
+<div>
+  <aside class="left-rail" role="presentation">
+    <zpc-intro></zpc-intro>
+  </aside>
+  <div class="core-rail about-section" role="main">
+    <mat-card>
+      <div class="about">
+        <mat-card-header>
+          <mat-card-title>
+            About me
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <!-- <a class="btn-purple" (click)="openCrowdZip()">
+            <mat-icon mat-list-icon svgIcon="plus"></mat-icon>zip to crowd
+          </a> -->
+          <p>{{userAbout}}</p>
+        </mat-card-content>
+      </div>
+    </mat-card>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          ELSEWHERE
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="elsewhere">
+        <mat-list role="list">
+          <mat-list-item  *ngFor="let social of userSocial">
+            <div class="social-icon">
+              <img src="/assets/img/icons/{{social.icon}}.svg" alt="web">
+              <a role="listitem" mat-line href="{{social.link}}">{{social.name}}</a>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <aside class="right-rail" role="presentation">
+    <div>
+      <mat-card class="">
+          <!-- <ul>
+              <li>
+                <div (click)="handleOpenAskRec()">
+                  <img src="/assets/img/icons/ic-chat-heart.svg" alt="heart">
+                </div>
+                <span>Find</span>
+              </li>
+              <li>
+                <div (click)="handleOpenSkillCard()">
+                  <img src="/assets/img/icons/ic-chat-skill.svg" alt="skill">
+                </div>
+                <span>Work</span>
+              </li>
+              <li>
+                <div (click)="handleOpenCrowdZip()">
+                  <img src="/assets/img/icons/ic-chat-add-user.svg" alt="add">
+                </div>
+                <span>Zip</span>
+              </li>
+            </ul> -->
+        <mat-card-content class="right-sidebar">
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="asksrecs"></mat-icon>
+              <span matLine>Ask Recs</span>
+            </mat-list-item>   
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="getwork"></mat-icon>
+              <span matLine>Get Work</span>
+            </mat-list-item>   
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="zipcrowd"></mat-icon>
+              <span matLine>Zip Crowd</span>
+            </mat-list-item>   
+          </mat-card-content>
+        </mat-card>
+    </div>
+  </aside>
+</div>

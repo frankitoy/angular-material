@@ -1,0 +1,196 @@
+<div class="search-wrap">
+  <div class="search-section01">
+    <div class="wrap">
+      <ul class="main-filter-list">
+        <li>
+          <button mat-stroked-button (click)="handleFilter('people')" [class.active]="mainFilter === 'people'">PEOPLE</button>
+        </li>
+        <li>
+          <button mat-stroked-button (click)="handleFilter('asks')" [class.active]="mainFilter === 'asks'">ASKS</button>
+        </li>
+        <li>
+          <button mat-stroked-button (click)="handleFilter('skills')" [class.active]="mainFilter === 'skills'">SKILLS</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="search-section02" [hidden]="!mainFilter">
+    <div class="wrap">
+      <ul class="sub-filter-list">
+        <li>
+          <mat-checkbox [checked]="subFilter === 'people'" (change)="handleCheck('people')" color="primary">All People</mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox [checked]="subFilter === 'me'" (change)="handleCheck('me')" color="primary">Me only</mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox [checked]="subFilter === 'f1'" (change)="handleCheck('f1')" color="primary">f1 crowd</mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox [checked]="subFilter === 'f2'" (change)="handleCheck('f2')" color="primary">f2 crowd</mat-checkbox>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="search-section03">
+    <div class="wrap">
+      <div class="search-block01" *ngIf="subFilter === 'people' || (subFilter !== 'f1' && subFilter !== 'f2')">
+        <div class="content01">
+          <h6>People matches ({{ peopleAll?.length || 0 }})</h6>
+          <a routerLink="/crowdfeed" class="see-all" *ngIf="peopleAll?.length > 3">See All</a>
+          <div class="clearing"></div>
+          <div class="search-people-card">
+            <zpc-search-people-card *ngFor="let person of peoplePreview" [data]="person"></zpc-search-people-card>
+          </div>
+        </div>
+        <div class="content02">
+          <zpc-app-loader *ngIf="!isRecordLoaded"></zpc-app-loader>
+          <div *ngIf="isRecordLoaded">
+            <h6>Ask matches ({{ asksAll?.length || 0 }})</h6>
+            <a routerLink="/profile/asks" class="see-all" *ngIf="asksAll?.length > 3">See All</a>
+            <div class="clearing"></div>
+            <div class="search-asks-card">
+              <zpc-search-asks-card *ngFor="let ask of asksPreview" [data]="ask"></zpc-search-asks-card>
+            </div>
+          </div>
+        </div>
+        <div class="content03">
+          <zpc-app-loader *ngIf="!isRecordLoaded"></zpc-app-loader>
+          <div *ngIf="isRecordLoaded">
+            <h6>Skill matches ({{ skillsAll?.length || 0 }})</h6>
+            <a routerLink="/profile/skills" class="see-all" *ngIf="skillsAll?.length > 3">See All</a>
+            <div class="clearing"></div>
+            <div class="search-skills-card">
+              <zpc-search-skills-card *ngFor="let skill of skillsPreview" [data]="skill"></zpc-search-skills-card>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="search-block01 f1" [ngClass]="{'hide' : subFilter !== 'f1' && subFilter !== 'f2'}">
+          <div class="content01">
+            <div class="side-title">
+              <h6>{{ titles.length || 0 }} results for people in {{ subFilter }} crowds</h6>
+            </div>
+            <mat-selection-list (selectionChange)="handleTitleChange($event.option.value)">
+              <mat-list-option class="no-wrap" *ngFor="let data of titles" [value]="data?.title" [selected]="data?.title === textFilter">
+                {{ data?.title }} ({{ data?.count }})
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+          <div class="content02">
+            <div class="switch-wrap">
+              <mat-slide-toggle
+                [formControl]="slideMap"
+                class="example-margin"
+                [color]="color"
+                [checked]="checked"
+                (change)="toggleMapView()"
+              >
+                Show on the Map
+              </mat-slide-toggle>
+            </div>
+            <mat-tab-group>
+              <mat-tab label="All">
+                <mat-card class="card-crowdf1">
+                  <mat-card-header>
+                    <mat-card-title>
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-list class="crowd-list" *ngIf="!mapChecked">
+                      <zpc-app-loader *ngIf="!isLoaded; else loaded" class="loader"></zpc-app-loader>
+                      <ng-template #loaded>
+                        <ng-container *ngIf="filters?.length; else noRec">
+                          <mat-list-item *ngFor="let filter of filters">
+                            <img src="assets/img/blank-user.png" alt="">
+                            <div class="list-item-content">
+                              <span class="name">{{ filter.first_name }} {{ filter.last_name }}</span>
+                              <span class="green-text">f1</span>
+                              <span class="count">{{ filter.rating || 0 }}</span>
+                              <mat-icon mat-list-icon svgIcon="check-green" class="check-green"></mat-icon>
+                              <div class="location-wrap">
+                                <mat-icon mat-list-icon svgIcon="location" class="location"></mat-icon>
+                                <span>{{ filter.city || 'N/A' }}, {{ filter.state || 'N/A' }}</span>
+                              </div>
+                              <div class="skills-wrap">
+                                <ul class="skill-list">
+                                  <li *ngFor="let skill of filter.skills"> {{ skill.title }} <span>12</span></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <button class="btn-purple-sm" (click)="handleChat($event, filter.id)">CHAT</button>
+                            <button mat-icon-button [matMenuTriggerFor]="menu" class="btn-menu">
+                              <mat-icon mat-list-icon svgIcon="list-menu"></mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu" class="crowd-menu">
+                              <button mat-menu-item routerLink="/user/{{filter.id}}">
+                                <span>View</span>
+                              </button>
+                              <button mat-menu-item (click)="handleRemove(filter.id)">
+                                <span>Remove</span>
+                              </button>
+                            </mat-menu>
+                          </mat-list-item>
+                        </ng-container>
+                        <ng-template #noRec>
+                          <p>No {{ subFilter }} crowd yet.</p>
+                        </ng-template>
+                      </ng-template>
+                    </mat-list>
+                    <div class="map-wrap" [hidden]="!mapChecked">
+                      <div #map></div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+                
+              </mat-tab>
+              <mat-tab label="Top Rated">
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    No top rated yet.
+                  </mat-card-content>
+                </mat-card>
+              </mat-tab>
+              <mat-tab label="Near me">
+                <mat-card>
+                  <mat-card-header>
+                    <mat-card-title>
+                    </mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    No near me yet.
+                  </mat-card-content>
+                </mat-card>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+      </div>
+      <div class="search-block02">
+        <ul class="list">
+          <li>
+            <p class="icon-wrap" (click)="handleAskRecs()">
+              <mat-icon mat-list-icon svgIcon="chat-heart"></mat-icon>
+            </p>
+            <p>Ask Recs</p>
+          </li>
+          <li>
+            <p class="icon-wrap" (click)="handleGetWork()">
+              <mat-icon mat-list-icon svgIcon="ask-rec"></mat-icon>
+            </p>
+            <p>Get Work</p>
+          </li>
+          <li>
+            <p class="icon-wrap" (click)="handleZipCrowd()">
+              <mat-icon mat-list-icon svgIcon="chat-zip"></mat-icon>
+            </p>
+            <p>Zip Crowd</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

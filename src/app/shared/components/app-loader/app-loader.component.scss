@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .mat-dialog-content {
+    min-height: 122px;
+  }
+}

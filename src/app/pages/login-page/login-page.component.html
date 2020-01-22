@@ -1,0 +1,32 @@
+<!-- TODO fix IRVING user angular material card-->
+<div class="login">
+  <div class="flex justify-center">
+    <div class="socialLogin">
+      <div class="dialog-header"><button class="btn btn-trans btn-condensed" type="button" (click)="cancelLogin()"><img src="/assets/icons/btn-close.svg" alt="Close"></button></div>
+      <div class="header">
+        <div class="title">Friends. Skills. Recommendations.</div>
+        <div class="mini-divider"></div>
+        <div class="subtitle">Find anyone you need, from everyone you trust.<br/><span class="small">On the go. On demand. Free. With no middleman.</span></div>
+      </div>
+      <div class="controls">
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-icon icon-left btn-full mt" type="button" (click)="socialSignIn(LoginProviderType.FACEBOOK)" [disabled]="isAuthenticating">
+              <img src="/assets/icons/social/fb.svg" alt="Facebook"><span class="btn-text">Continue with Facebook</span>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-icon icon-left btn-full mt" type="button" (click)="socialSignIn(LoginProviderType.GOOGLE)" [disabled]="isAuthenticating">
+              <img src="/assets/icons/social/google.png" alt="Google">
+              <span class="btn-text">Continue with Google</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-content">By continuing, you agree to ZippyCrowd's<br/><span class="font-bold">Terms of Use</span> and <span class="font-bold">Privacy Policy</span></div>
+      <div class="dialog-footer"></div>
+    </div>
+  </div>
+</div>

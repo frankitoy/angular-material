@@ -1,0 +1,73 @@
+<div class="pop-box-intro" *ngIf="isClose" [hidden]="introClose">
+  <img src="/assets/img/icons/ic-close.svg" class="close" alt="close" (click)="introClose = !introClose">
+  <img src="/assets/img/icons/ic-zc-circle.svg" class="zc-circle" alt="zippycrowd">
+  <p>Hi there! What would you like to do?</p>
+</div>
+<div class="pop-box" *ngIf="!isClose">
+  <div class="pop-header">
+    <img src="/assets/img/icons/ic-zc-circle.svg" class="zc-circle" alt="zippycrowd">
+    <img src="/assets/img/icons/ic-zippy-text.svg" class="zc-text" alt="zippycrowd">
+  </div>
+  <div class="pop-content-01">
+    <p class="text-01">Hi there! What would you like to do?</p>
+    <button class="ask-rec-btn" [class.active]="isAskOn" (click)="handleTypeClick(true)">
+      <img src="/assets/img/icons/ic-heart-on.svg" alt="heart" *ngIf="isAskOn">
+      <img src="/assets/img/icons/ic-heart-off.svg" alt="heart" *ngIf="!isAskOn">
+      ASK RECS
+    </button>
+    <button class="get-work-btn" [class.active]="!isAskOn" (click)="handleTypeClick(false)">
+      <img src="/assets/img/icons/ic-people-on.svg" alt="work" *ngIf="!isAskOn">
+      <img src="/assets/img/icons/ic-people-off.svg" alt="work" *ngIf="isAskOn">
+      GET WORK
+    </button>
+  </div>
+  <div class="pop-content-02">
+
+    <!-- <mat-form-field class="type-wrap">
+      <mat-form-field appearance="outline">
+        <mat-select (selectionChange)="handleOnChange($event.value)"
+          placeholder="{{ isAskOn ? 'Tell us what you’re looking for...' : 'Tell us what you do' }}">
+          <mat-label>Profession</mat-label>
+          <mat-option *ngFor="let option of professions" [value]="option?.title">
+            <input matInput aria-label="I'm looking for" matInput placeholder="I'm looking for" type="text" <img
+              src="/assets/img/icons/{{ option?.img }}" alt="heart"> {{ option?.title }}
+            [formControlName]="'profession'" [matAutocomplete]="auto"> </mat-option>
+          <mat-autocomplete #auto="matAutocomplete">
+        </mat-select>
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{option}}</mat-option>
+      </mat-form-field> -->
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ isAskOn ? 'Tell us what you’re looking for...' : 'Tell us what you do' }}</mat-label>
+        <input matInput #skillTitle (keyup)="handleOnChange($event.target.value)" value="{{ skill }}">
+      </mat-form-field>
+      <!-- <p class="text-02">We will use this info to help you get the best recommendations fast.</p>  -->
+      <mat-selection-list (selectionChange)="handleOnChange($event.option.value)">
+        <mat-list-option *ngFor="let skill of professions" [value]="skill.title">
+          {{ skill.title }}
+        </mat-list-option>
+      </mat-selection-list>
+      
+      <div class="social-login" [ngClass]="{'collapsed': skill }">
+        <!-- [disabled]="selectedLayout === 'top'" -->
+        <p>Proceed with: </p>
+        <button mat-stroked-button class="fb-btn" (click)="socialSignIn(LoginProviderType.FACEBOOK)"
+          [disabled]="!skill"> Facebook </button>
+        <button mat-stroked-button class="g-btn" (click)="socialSignIn(LoginProviderType.GOOGLE)" [disabled]="!skill">
+          Google </button>
+        <!-- <a (click)="socialSignIn(LoginProviderType.FACEBOOK)" class="fb-link"><img src="/assets/img/icons/ic-fb-btn.svg" alt="fb"></a>
+      <a (click)="socialSignIn(LoginProviderType.GOOGLE)"><img src="/assets/img/icons/ic-google-btn.svg" alt="google"></a> -->
+      </div>
+      <p class="text-02">We will use this info to help you get the best recommendations fast.</p>
+      <!--<p class="text-03">
+         By joining you agree to ZippyCrowd’s  <a href="/terms" class="font-bold" title="Terms of Use">Terms </a> and <a href="/privacy" class="font-bold" title="Privacy Policy">Privacy</a>
+      </p>-->
+  </div>
+</div>
+<div class="pop-btn">
+  <img src="/assets/img/icons/ic-pop-open.svg" (click)="handleClose()" *ngIf="isClose; else isOpen" alt="open">
+  <ng-template #isOpen>
+    <img src="/assets/img/icons/ic-pop-close.svg" (click)="handleClose()" alt="close">
+  </ng-template>
+</div>

@@ -1,0 +1,21 @@
+<mat-card class="o-recs-card">
+  <zpc-app-loader *ngIf="!isLoaded; else crowdRecsLoaded"></zpc-app-loader>
+  <ng-template #crowdRecsLoaded>
+    <mat-card-header>
+      <mat-card-title>Crowd Recs</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <span>{{ givenRecs }}</span>
+        Given recs
+      </div>
+      <div>
+        <span>{{ receivedRecs }}</span>
+        Received recs
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Ask for Recs</button>
+    </mat-card-actions>
+  </ng-template>
+</mat-card>

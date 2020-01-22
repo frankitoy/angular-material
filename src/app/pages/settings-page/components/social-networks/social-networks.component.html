@@ -1,0 +1,75 @@
+
+<h3>SOCIAL NETWORKS</h3>
+<mat-list class="social-list" [formGroup]="parentForm">
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <img src="/assets/img/icons/ic-fb.svg" alt="facebook"> Facebook
+    <div class="form-group" *ngIf="!facebook">
+      <input type="text" formControlName="facebook" placeholder="Enter URL">
+      <button class="submit" (click)="handleSubmit('facebook')">Submit</button>
+      <button class="close" (click)="handleLinkToggle('facebook', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <div class="social-content" *ngIf="facebook && facebook !== true">
+      <p>{{ facebook }}</p>
+      <button class="close" (click)="handleLinkToggle('facebook', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <button class="link" *ngIf="facebook === true" (click)="handleLinkToggle('facebook', false)">Link</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <img src="/assets/img/icons/ic-linkend.svg" alt="linkedin"> Linkedin
+    <div class="form-group" *ngIf="!linkedin">
+      <input type="text" formControlName="linkedin" placeholder="Enter URL">
+      <button class="submit" (click)="handleSubmit('linkedin')">Submit</button>
+      <button class="close" (click)="handleLinkToggle('linkedin', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <div class="social-content" *ngIf="linkedin && linkedin !== true">
+      <p>{{ linkedin }}</p>
+      <button class="close" (click)="handleLinkToggle('linkedin', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <button class="link" *ngIf="linkedin === true" (click)="handleLinkToggle('linkedin' , false)">Link</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <img src="/assets/img/icons/ic-twitter.svg" alt="twitter"> Twitter
+    <div class="form-group" *ngIf="!twitter">
+      <input type="text" formControlName="twitter" placeholder="Enter URL">
+      <button class="submit" (click)="handleSubmit('twitter')">Submit</button>
+      <button class="close" (click)="handleLinkToggle('twitter', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <div class="social-content" *ngIf="twitter && twitter !== true">
+      <p>{{ twitter }}</p>
+      <button class="close" (click)="handleLinkToggle('twitter', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <button class="link" *ngIf="twitter === true" (click)="handleLinkToggle('twitter' , false)">Link</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <img src="/assets/img/icons/ic-youtube.svg" alt="youtube"> Youtube
+    <div class="form-group" *ngIf="!youtube">
+      <input type="text" formControlName="youtube" placeholder="Enter URL">
+      <button class="submit" (click)="handleSubmit('youtube')">Submit</button>
+      <button class="close" (click)="handleLinkToggle('youtube', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <div class="social-content" *ngIf="youtube && youtube !== true">
+      <p>{{ youtube }}</p>
+      <button class="close" (click)="handleLinkToggle('youtube', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <button class="link" *ngIf="youtube === true" (click)="handleLinkToggle('youtube' , false)">Link</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <img src="/assets/img/icons/ic-instagram.svg" alt="instagram">Instagram
+    <div class="form-group" *ngIf="!instagram">
+      <input type="text" formControlName="instagram" placeholder="Enter URL">
+      <button class="submit" (click)="handleSubmit('instagram')">Submit</button>
+      <button class="close" (click)="handleLinkToggle('instagram', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <div class="social-content" *ngIf="instagram && instagram !== true">
+      <p>{{ instagram }}</p>
+      <button class="close" (click)="handleLinkToggle('instagram', true)"><img src="/assets/img/icons/ic-close-black.svg" alt="close"></button>
+    </div>
+    <button class="link" *ngIf="instagram === true" (click)="handleLinkToggle('instagram' , false)">Link</button>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>

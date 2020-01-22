@@ -1,0 +1,292 @@
+/deep/ {
+  .create-ask-rec-dialog-container {
+    width: 100%;
+    max-width: 550px !important;
+    position: relative !important;
+    .c-btn {
+      border: none;
+      position: absolute;
+      right: 10px;
+      top: 15px;
+    }
+    .content-block01 {
+      border-bottom: 1px solid #C5C5C5;
+      padding-bottom: 10px;
+      h3 {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+        position: relative;
+        top: -5px;
+        left: .5rem;
+      }
+    }
+    
+    .mat-stepper-horizontal-line {
+      border: none;
+    }
+   
+    h4 {
+      font-size: 24px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 15px 0;
+    }
+    .switch-wrap {
+      display: inline-block;
+      text-align: right;
+      .mat-slide-toggle {
+        position: absolute;
+        right: 23px;
+        top: 77px;
+      }
+    }
+    .mat-form-field {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .mat-selection-list {
+      height: 13rem;
+      overflow: auto;
+      margin-bottom: 20px;
+      border: 1px solid #762FE6;
+      border-radius: 5px;
+    }
+    .mat-list-option {
+      height: 2rem;
+    }
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+    .first-form-group {
+      .mat-pseudo-checkbox {
+        display: none !important;          
+      }
+      .mat-form-field {
+        .mat-form-field-infix {
+          border-top-width: 4px;
+        }
+      }  
+    }
+     
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #B0BAC5;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B0BAC5;
+    }
+    .next-step {
+      float: right;
+      background: #762FE6;
+      border-radius: 20px;
+      padding: 0 50px;
+      color: #fff;
+    }
+    .close {
+      padding: 0 50px;
+      border-radius: 20px;
+    }
+    .step2Header {
+      text-align: center;
+      display: block;
+    }
+    .step2Switch .mat-slide-toggle {
+      position: absolute;
+      right: 23px;
+      top: 150px;
+    }
+    .skillInput {
+      //margin-top: 30px; 
+      .mat-form-field-infix {
+        border-top-width: 4px;
+      }
+    }
+    
+    .skil-tags-wrap {
+      margin: 10px 0;
+    }
+    .second-form-group {
+      .mat-pseudo-checkbox-checked {
+        &::after {
+            top: 4px;
+        }
+        background: #762FE6 !important;
+      }
+      .mat-selection-list {
+        height: 210px;
+        .mat-list-option {
+          width: 33%;
+          float: left;
+          font-size: 12px;
+        }
+      }
+
+      .mat-form-field-subscript-wrapper {
+        position: absolute;
+        top: 24px;
+        width: 66px;
+        right: 0;
+      }     
+    }
+    h4 {
+      display: block;
+    }
+    .last-step-block01 {
+      overflow: hidden;
+      margin-top: 44px;
+      margin-bottom: 20px;
+      .off-service {
+        color: #979797;
+      }
+      .img-wrap {
+        float: left;
+        img {
+          width: 41px !important;
+          border-radius: 50%;
+          background-image: url(/assets/img/icons/ic-circle.svg);
+          background-size: 100%;
+          padding: 5px;
+          margin-right: 10px;
+          position: relative;
+          top: 0;
+        }
+      }
+      .content-wrap {
+        display: inline-block;
+        width: calc(100% - 95px);
+        padding-left: 0;
+        p {
+            margin: 0;
+        }
+        .description {
+            margin-top: 20px;
+        }
+        ul {
+          overflow: hidden;
+          padding: 0;
+          li {
+            list-style: none;
+            float: left;
+            width: 31%;
+            text-align: center;
+            background: #f3f6f9;
+            font-size: 14px;
+            margin: 5px;
+            padding: 5px 10px;
+          }
+          li:first-child {
+            margin-left: 0;
+          }
+          li:nth-child(3n + 4) {
+            margin-left: 0;
+          }
+        }
+      }
+      .stats-wrap {
+        background: #f3f6f9;
+        overflow: hidden;
+        padding: 10px;
+        font-size: 14px;
+        ul {
+          overflow: hidden;
+          padding: 0;
+          float: left;
+          margin: 0;
+          li {
+              float: left;
+              list-style: none;
+              margin-left: 10px;
+              line-height: 28px;
+          }
+          li:first-child {
+              margin-left: 0;
+          }
+        }
+        p {
+          float: right;
+          margin: 0;
+          img {
+            position: relative;
+            top: 4px;
+          }
+        }
+      }
+    }
+    .promote-wrap {
+      overflow: hidden;
+      p {
+        margin: 0;
+        float: right;
+        cursor: pointer;
+        img {
+          width: 20px;
+          position: relative;
+          top: 4px;
+        }
+        i {
+          position: relative;
+          top: 7px;
+        }
+      }
+    }
+    .social-wrap {
+      overflow: hidden;
+      .socialList {
+        overflow: hidden;
+        float: right;
+        li {
+          list-style: none;
+          float: left;
+          font-size: 12px;
+          text-align: center;
+          margin: 0 5px;
+          img {
+            display: block;
+            margin: auto;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .done-btn {
+      background: #762FE6;
+      border-radius: 20px;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px 49px;
+      position: absolute;
+      right: 30px;
+      bottom: 25px;
+    }
+ }
+  .desc-wrap {
+    //margin-top: 15px;
+    .description {
+      height: 100px;
+      padding-right: 55px;
+    }
+ }
+  .find-wrap {
+    border-bottom: 1px solid #C5C5C5;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    .mat-chip.mat-standard-chip {
+      background-color: transparent !important;
+      border: 1px solid #762FE6;
+      color: #762FE6;
+    }
+    .mat-chip.mat-standard-chip:focus, .mat-chip.mat-standard-chip.active {
+      background: #762FE6 !important;
+      color: #fff;
+    }
+  }
+}

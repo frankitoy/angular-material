@@ -1,0 +1,75 @@
+{
+    "message": "OK",
+    "response": {
+        "skills": [
+            {
+                "id": 1209,
+                "user_id": 275,
+                "title": "Customer Insights Specialist",
+                "description": null,
+                "location": null,
+                "tags": null,
+                "active": true,
+                "created_at": "2016-09-01T03:01:48.524Z",
+                "updated_at": "2016-09-01T03:04:42.444Z"
+            },
+            {
+                "id": 1323,
+                "user_id": 291,
+                "title": "Online marketing",
+                "description": null,
+                "location": null,
+                "tags": null,
+                "active": null,
+                "created_at": "2017-05-08T10:49:39.361Z",
+                "updated_at": "2017-05-08T11:03:53.949Z"
+            },
+            {
+                "id": 1331,
+                "user_id": 911,
+                "title": "Reading Aloud to Children",
+                "description": null,
+                "location": null,
+                "tags": null,
+                "active": null,
+                "created_at": "2017-05-19T23:05:48.544Z",
+                "updated_at": "2017-05-19T23:05:48.544Z"
+            }
+        ],
+        "asks": [
+            {
+                "id": 41,
+                "user_id": 279,
+                "description": "Launch strategy needed based on Facebook and Instagram for a small new start up in the beauty industry. ",
+                "title": "social media",
+                "address": null,
+                "latlong": [],
+                "is_open": true,
+                "expires_at": null,
+                "created_at": "2015-10-06T01:28:44.895Z"
+            },
+            {
+                "id": 42,
+                "user_id": 280,
+                "description": "designer?",
+                "title": "architectural design",
+                "address": null,
+                "latlong": [],
+                "is_open": true,
+                "expires_at": null,
+                "created_at": "2015-10-07T15:14:54.929Z"
+            },
+            {
+                "id": 43,
+                "user_id": 281,
+                "description": "I am working on a huge project of a National Stadium, need a guy who know how to work on such projects\n",
+                "title": "project management in Stadium construction",
+                "address": null,
+                "latlong": [],
+                "is_open": true,
+                "expires_at": null,
+                "created_at": "2015-10-07T20:10:46.769Z"
+            }
+        ]
+    }
+}

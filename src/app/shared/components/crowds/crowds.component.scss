@@ -1,0 +1,70 @@
+:host {
+  ::ng-deep {
+    .crowd-ask {
+      padding: 0 0 10px;
+      box-shadow: none !important;
+    
+      &>.mat-card-header {
+        padding: 16px 18px;
+      }
+    
+      .mat-tab-header {
+        padding: 0 25px;
+      }
+    
+      .mat-tab-body {
+        padding: 0 0 6px;
+        max-height: 275px;';'
+        overflow-y: auto;
+    
+        div::-webkit-scrollbar {
+          width: 7px;
+        }
+        div::-webkit-scrollbar-track {
+          background: #f1f1f1; 
+        }
+        div::-webkit-scrollbar-thumb {
+          background: #B0BAC5; 
+        }
+        div::-webkit-scrollbar-thumb:hover {
+          background: #B0BAC5; 
+        }
+
+        p.noData {
+          padding: 0 20px;
+        }
+
+        zpc-recommended-crowd {
+          padding: 18px 0 6px 18px;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.title {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 22px;
+  font-size: 16px;
+  color: #000;
+  text-transform: uppercase;
+  padding: 17px 22px;
+  margin: 0;
+  border-bottom: 1px solid #C5C5C5;
+}
+
+::ng-deep .mat-tab-label-container, ::ng-deep .mat-tab-label-active {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 22px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000;
+}

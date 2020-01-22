@@ -1,0 +1,37 @@
+<mat-card class="o-skill-card">
+  <zpc-app-loader *ngIf="!isLoaded; else asksLoaded"></zpc-app-loader>
+  <ng-template #asksLoaded>
+    <mat-card-header>
+      <mat-card-title>My Asks</mat-card-title>
+      <p><span>{{ open }} Open /</span> <span> {{ closed }} Closed</span></p>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list role="list">
+        <ng-container *ngIf="myAsks.length; else noAsks">
+          <a class="asksItems" mat-list-item *ngFor="let ask of myAsks" routerLink="/profile/asks">
+            <h4 mat-line>{{ ask.skill }}</h4>
+            <div mat-line>
+              <div class="recs">
+                <img src="/assets/icons/ic-rec.svg" alt="ic rec logo">
+                <span><span>{{ ask.recommend }}</span> Recs</span>
+              </div>
+              <div class="friends">
+                <img src="/assets/icons/ic-friends.svg" alt="ic friends logo">
+                <span><span>{{ ask.friends }}</span> Friends</span>
+              </div>
+              <div *ngIf="ask.new" class="new">
+                <a routerLink="/profile/crowd">+ {{ ask.new }} New</a>
+              </div>
+            </div>
+          </a>
+        </ng-container>
+        <ng-template #noAsks>
+          <p class="noAsks">No Asks yet.</p>
+        </ng-template>
+        <mat-list-item class="viewAsks">
+          <p mat-line><a routerLink="/profile/asks"> View All</a></p>
+        </mat-list-item>
+      </mat-list>                        
+    </mat-card-content>
+  </ng-template>
+</mat-card>

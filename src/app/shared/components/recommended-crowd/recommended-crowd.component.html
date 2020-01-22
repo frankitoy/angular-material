@@ -1,0 +1,22 @@
+<mat-card class="c-ask-user">
+  <div class="spinner" *ngIf="!isLoaded; else userLoaded">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #userLoaded>
+    <mat-card-header >
+      <div mat-card-avatar>
+        <img [src]="userData?.avatar" alt="user avatar">
+      </div>
+      <mat-card-title>
+        {{ userData?.first_name | titlecase }} {{ userData?.last_name | titlecase }} {{ user?.type }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <span class="title">{{ user?.title | titlecase }}</span><span *ngIf="userData?.city"> in  {{ userData?.city }}</span>
+        <mat-card-actions class="parent-actions">
+          <a routerLink=".">View</a>
+          <a routerLink=".">Chat</a>
+        </mat-card-actions>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </ng-template>
+</mat-card>

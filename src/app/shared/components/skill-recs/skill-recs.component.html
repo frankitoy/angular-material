@@ -1,0 +1,30 @@
+<mat-card class="o-skillrecs-card">
+  <zpc-app-loader *ngIf="!isLoaded; else skillsLoaded"></zpc-app-loader>
+  <ng-template #skillsLoaded>
+    <mat-card-header>
+      <mat-card-title>
+        Skill Recs
+      </mat-card-title>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" (click)="onPromoteSkill()">Promote a Skill</button>
+      </mat-card-actions>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="skillRecs.length; else noSkills" class="doughnutChart">
+        <canvas baseChart
+          [data]="skillRecommended"
+          [labels]="skillRecs"
+          [chartType]="doughnutChartType"
+          [colors]="doughnutChartColors"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+      <ng-template #noSkills>
+        <div class="noSkillMsg">
+          <p>You have no skills yet.</p>
+        </div>
+      </ng-template>
+    </mat-card-content>
+  </ng-template>
+</mat-card>

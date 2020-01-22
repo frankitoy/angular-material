@@ -1,0 +1,63 @@
+h3 {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+}
+input {
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  border-radius: 100px;
+  height: 30px;
+  padding: 0 10px;
+  width: 100%;
+  line-height: 22px;
+  font-size: 0.875rem;
+}
+.error input {
+  border: 1px solid #c82f1f;
+}
+textarea {
+  width: 100%;
+  border: 1px solid #E6E6E6;
+  border-radius: 20px;
+  height: 100px;
+  padding: 10px;
+  line-height: 22px;
+  font-size: 0.875rem;
+}
+label {
+  color: #AEAEAE;
+  display: block;
+  margin-bottom: 5px;
+}
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+.tooltip {
+  max-width: 320px;
+  background-color: #c82f1f;
+  color: #fff;
+  text-align: center;
+  border-radius: 19px;
+  padding: 5px 8px;
+  position: absolute;
+  z-index: 1000;
+  display: block;
+  opacity: 1;
+  transition: opacity 300ms;
+  right: 0;
+  margin-top: -64px;
+  font-size: 14px;
+}
+.tooltip-top::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 100%;
+  right: 30px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: #c82f1f transparent transparent transparent;
+}

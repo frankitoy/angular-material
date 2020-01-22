@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="810" viewBox="0 0 720 810">
+    <defs>
+        <path id="a" d="M0 0h720v810H0z"/>
+        <filter id="b" width="110.6%" height="109.4%" x="-4.3%" y="-4.7%" filterUnits="objectBoundingBox">
+            <feOffset dx="7" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="11.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
+        </filter>
+        <radialGradient id="d" cx="15.589%" cy="-21.699%" r="170.375%" fx="15.589%" fy="-21.699%" gradientTransform="matrix(.3202 .90354 -.99346 .63054 -.11 -.221)">
+            <stop offset="0%" stop-color="#3A2D56"/>
+            <stop offset="55.805%" stop-color="#7F52EF"/>
+            <stop offset="100%" stop-color="#604C8D"/>
+        </radialGradient>
+        <path id="c" d="M-291 0H793v810H-291z"/>
+        <radialGradient id="f" cx="15.589%" cy="-21.699%" r="262.103%" fx="15.589%" fy="-21.699%" gradientTransform="matrix(.20814 .58733 -1.43923 .1839 -.189 -.269)">
+            <stop offset="0%" stop-color="#3A2D56"/>
+            <stop offset="55.805%" stop-color="#7F52EF"/>
+            <stop offset="100%" stop-color="#604C8D"/>
+        </radialGradient>
+        <filter id="g" width="237.9%" height="182.8%" x="-68.9%" y="-41.4%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="108.298"/>
+        </filter>
+        <filter id="h" width="306.7%" height="306.9%" x="-103.4%" y="-103.5%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="152.659"/>
+        </filter>
+        <filter id="i" width="254.9%" height="255%" x="-77.4%" y="-77.5%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="85.162"/>
+        </filter>
+        <filter id="j" width="145.2%" height="179.4%" x="-22.6%" y="-39.7%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="53.763"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <use fill="#000" filter="url(#b)" xlink:href="#a"/>
+        <use fill="#3A2D56" xlink:href="#a"/>
+        <mask id="e" fill="#fff">
+            <use xlink:href="#c"/>
+        </mask>
+        <use fill="url(#d)" xlink:href="#c"/>
+        <g mask="url(#e)">
+            <g transform="translate(-291 -35)">
+                <path fill="url(#f)" d="M498.874 11.979h87.972c105.854 0 191.666 85.812 191.666 191.666v401.551c0 105.855-85.812 191.666-191.666 191.666h-87.972c-105.854 0-191.666-85.811-191.666-191.666v-401.55c0-105.855 85.812-191.667 191.666-191.667z" filter="url(#g)" opacity=".7" transform="rotate(59 542.86 404.42)"/>
+                <ellipse cx="221.513" cy="221.802" fill="#7F52EF" filter="url(#h)" rx="221.513" ry="221.337"/>
+                <ellipse cx="919.043" cy="720.988" fill="#7F52EF" filter="url(#i)" rx="164.957" ry="164.826"/>
+                <path fill="#7F52EF" d="M671.469 475.587c84.757 0 153.466-68.655 153.466-153.345 0-13.475 82.247-22.378 139.501-69.142 74.459-60.816 127.702-161.808 118.754-175.444-27.416-41.78-357.988 91.242-411.721 91.242-84.757 0-300.71 53.583-300.71 138.272 0 57.098 66.49 117.99 156.424 148.85 43.461 14.912 116.672 19.567 144.286 19.567z" filter="url(#j)"/>
+            </g>
+        </g>
+    </g>
+</svg>

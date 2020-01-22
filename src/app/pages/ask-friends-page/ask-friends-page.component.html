@@ -1,0 +1,15 @@
+<div class="c-ask-details">    
+      <zpc-stepper 
+        [askInfo]="askInfo"
+        [currentUrl]="currentUrl"
+        [currentUser]="(user$ | async)"
+        [enabledAdditionalDetails]="enabledAdditionalDetails"
+        [formEditable]="formEditable"
+        [getCrowd]="(getCrowd$ | async)"
+        [formGroupOptional]="formGroupOptional"
+        [selectedIndex]="selectedIndex"
+        [user]="(user$ | async) || user"
+        (askMyCrowdEmitted)="askMyCrowdEmitted($event)"
+        (stepperStateEmitted)="stepperEmitted($event)"
+      ></zpc-stepper>
+</div>

@@ -1,0 +1,15 @@
+<div class="p-ask-details">
+    <zpc-stepper
+      [askForm]="(askForm$ | async)"
+      [askFormGroup]="askFormGroup"
+      [durationOptions]="durationOptions"
+      [enabledAdditionalDetails]="enabledAdditionalDetails"
+      [formEditable]="formEditable"
+      [formGroupOptional]="formGroupOptional"
+      [selectedIndex]="selectedIndex"
+      [professions]="(professions$ | async)"
+      [user]="(user$ | async)"
+      (askFormUpdatedEmitted)="askFormUpdated($event);"
+      *ngIf="(professions$ | async)"
+    ></zpc-stepper>
+</div>

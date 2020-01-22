@@ -1,0 +1,53 @@
+<mat-card class="c-ask-user">
+  <div class="spinner" *ngIf="!isLoaded; else userLoaded">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #userLoaded>
+    <mat-card-header >
+      <div mat-card-avatar>
+        <img [src]="data?.avatar" alt="user avatar">
+      </div>
+      <mat-card-title>
+        {{ data?.first_name }}  {{ data?.last_name }}
+        <mat-chip-list>
+          <mat-chip class="primary">{{ data?.rating || 0 }}</mat-chip>
+          <mat-chip class="type">
+            <ng-container *ngIf="type === 'parent'; else f1">
+              f2
+            </ng-container>
+            <ng-template #f1>
+              f1
+            </ng-template>
+          </mat-chip>
+        </mat-chip-list>
+        <ng-container *ngIf="routeType === 'skill' && type === 'child'">
+          <p class="skillRecommended" *ngIf="relation === 'owner'; else others">Recommended you to {{ recsCount }} Asks</p>
+          <ng-template #others>
+            <p class="skillRecommended">Recommended {{ firstName | titlecase }} to {{ recsCount }} Ask</p>
+          </ng-template>
+        </ng-container>
+        <mat-card-actions *ngIf="type === 'child'">
+          <a routerLink="."><mat-icon class="example-tab-icon">thumb_up</mat-icon> Thanks</a>
+          <a routerLink="."><mat-icon>chat_bubble_outline</mat-icon> Chat</a>
+        </mat-card-actions>
+        <ng-container *ngIf="routeType === 'skill' && type === 'parent'">
+            <mat-card-subtitle class="skillChildDetails">
+              <p>3 shared trusted crowds</p>
+              <p class="askTitle">Looking for a good UX Designer</p>
+              <p class="askLocation">any location / remote</p>
+              <a routerLink=".">View Ask</a>
+            </mat-card-subtitle>
+          </ng-container>
+      </mat-card-title>
+      <mat-card-subtitle *ngIf="routeType !== 'skill' && type === 'parent'">
+        <span class="title">{{ title | titlecase }}</span><span *ngIf="data?.city"> in  {{ data?.city | titlecase }}</span>
+        <mat-card-actions class="parent-actions" *ngIf="type === 'parent'">
+          <a *ngIf="routeType === 'skill'" routerLink=".">View Ask</a>
+          <a routerLink=".">View</a>
+          <a routerLink=".">Chat</a>
+        </mat-card-actions>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <p class="date" *ngIf="date">{{ date | date:'dd LLLL' }}</p>
+  </ng-template>
+</mat-card>

@@ -1,0 +1,101 @@
+.recsContent {
+  display: flex;
+  justify-content: space-between;
+
+  .recsTop {
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      margin-right: 5px;
+      width: 14px;
+      height: 14px;
+      display: flex;
+
+      &.ellipse {
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    a {
+      color: #000;
+      margin: 0;
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: normal;
+      text-transform: capitalize;
+    }
+  }
+
+  .recsBottom {
+    display: flex;
+    margin-left: 20px;
+
+    div {
+      display: flex;
+      align-items: center;
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 22px;
+      color: #000;
+      margin-right: 13px;
+
+      mat-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .recsRight {
+    display: flex;
+    align-items: center;
+
+    div {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 22px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+
+      &.recsRecieve {
+        margin-right: 30px;
+
+        mat-icon {
+          width: 13px;
+          height: 13px;
+          display: flex;
+          margin-right: 5px;
+  
+          ::ng-deep svg {
+            path {
+              fill: #FF3365;
+            }
+          }
+        }
+      }
+
+      &.recsNew {
+        background: rgba(31, 195, 155, 0.1);
+        color: #1FC39B;
+        padding: 1px 7px;
+        border-radius: 10px;
+
+        &.askRecsNew {
+          background: rgba(255, 51, 101, 0.1);
+          color: #FF3365;
+        }
+      }
+    }
+  }
+}

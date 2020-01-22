@@ -1,0 +1,119 @@
+@import '~assets/stylesheets/scss/variables';
+@import '~assets/stylesheets/scss/main';
+
+:host {
+
+  .p-ask {
+    @extend .main-rails-2;
+
+    ::ng-deep .mat-card.c-asks-card {
+      margin-bottom: 0;
+      border-radius: 10px 10px 0 0;
+
+      .mat-card-header-text {
+        margin-left: 0;
+      }
+    }
+
+    ::ng-deep .parent-actions {
+      display: none;
+    }
+  }
+  
+  .suggestion-card {
+    width: 254px;
+    max-width: 254px;
+    height: 340px;
+    border: 1px solid #C5C5C5;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+}
+
+.p-ask {
+
+  .total-recommendations {
+    border-radius: 0;
+    border: 1px solid #C5C5C5;
+    border-top: none;
+    box-shadow: none;
+    background-color: #F5F6F9;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 22px;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 0 !important;
+  }
+
+  .mat-accordion {
+
+    .mat-expansion-panel {
+      margin: 0;
+      border: 1px solid #C5C5C5;
+      border-radius: 0;
+      border-top: 0;
+      box-shadow: none;
+      padding: 15px 0;
+
+      .mat-expansion-panel-header {
+        // height: auto !important;
+
+        .mat-expansion-panel-header-description {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          font-family: Nunito;
+          font-style: normal;
+          font-weight: normal;
+          line-height: 22px;
+          font-size: 16px;
+          text-align: right;
+          color: #000;
+        }
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+
+      ::ng-deep .mat-expansion-panel-body {
+        padding-bottom: 0;
+      }
+
+      .panel-content {
+        padding-left: 58px;
+
+        zpc-recommendation-header {
+          border-top: 1px solid #C5C5C5;
+          display: block;
+          padding: 17px 0 14px;
+        }
+      }
+    }
+  }
+
+  .stats, .ask-crowd {
+    margin-top: 27px;
+  }
+}
+ 
+//  SWIPER // 
+.c-swiper {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  .content-container {
+    background-color: transparent;
+  }
+  // .swiper-slide {
+  //   color: #aaa;
+  //   background-color: #eee;
+  // }
+  
+  // .swiper-slide-active {
+  //   color: #fff;
+  //   background-color: #aaa;
+  // }
+}
+// END SWIPER // 

@@ -1,0 +1,35 @@
+.mat-card {
+  box-shadow: none !important;
+}
+
+.mat-card-header {
+  ::ng-deep .mat-card-header-text {
+    display: none;
+  }
+
+  .mat-icon {
+    margin-right: 9px;
+    width: 12px;
+    height: 12px;
+  }
+
+  span {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 22px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #333333;
+  }
+}
+
+.shareList {
+  border-top: none;
+  padding-left: 0;
+
+  ul {
+    padding: 0;
+    justify-content: flex-start;
+  }
+}

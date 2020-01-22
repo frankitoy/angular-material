@@ -1,0 +1,40 @@
+{
+  "message": "OK",
+  "response": {
+    "skills": [
+      {
+        "title": "Hairdresser"
+      },
+      {
+        "title": "Personal trainer"
+      },
+      {
+        "title": "Babysitter"
+      },
+      {
+        "title": "Accountant"
+      },
+      {
+        "title": "Mechanic"
+      },
+      {
+        "title": "Bookkeeper"
+      },
+      {
+        "title": "Handyman"
+      },
+      {
+        "title": "Plumber"
+      },
+      {
+        "title": "Gardener"
+      },
+      {
+        "title": "UX UI Designer"
+      },
+      {
+        "title": "App developer"
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+// Third pirty style files
+// Sidebar Scroll
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+//@ngx-share: 
+@import '~@ngx-share/button/themes/circles/circles-dark-theme';
+
+//  star-rating styles (Used in Shop app)
+
+// Data Table
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+// Rich Text Editor
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+// Drag and Drop
+
+// Calendar
+
+// User tour
+
+// Page loader Topbar
+@import './vendor/pace/pace-theme-min.css';
+
+
+// Main Variables File
+@import './assets/stylesheets/scss/variables';
+
+// Open _themes.scss and remove unnecessary theme files
+@import './assets/stylesheets/scss/themes';
+
+// Open _main.scss and keep files which are required for your current layout.
+@import './assets/stylesheets/scss/main';
+
+// Open _views.scss and remove unnecessary view related files
+@import './assets/stylesheets/scss/views';
+
+@import './app/shared/shared.module';
+@import './app/pages/ask-details-page/ask-details-page.module';
+@import './app/pages/home-page/home-page.module';
+@import './app/pages/login-page/login-page.module';
+@import './app/pages/welcome-page/welcome-page.module';

@@ -1,0 +1,159 @@
+:host {
+
+  ::ng-deep {
+
+    .spinner {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      .mat-spinner {
+        width: 30px !important;
+        height: 30px !important;
+
+        svg {
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
+    }
+
+    .mat-card {
+      display: flex;
+      justify-content: space-between;
+
+      .date {
+        margin: 0;
+      }
+    }
+
+    .mat-card-header-text {
+      margin-left: 0;
+    }
+
+    .mat-card-title {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 22px;
+      font-size: 16px;
+
+      .mat-chip-list {
+        display: inline-block;
+
+        .mat-chip {
+          min-height: 22px;
+          font-family: Nunito;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 19px;
+          font-size: 12px;
+          text-align: center;
+          padding: 5px 8px;
+          display: flex;
+          justify-content: center;
+          min-width: 38px;
+
+          &.primary {
+            background-color: #762FE6;
+            color: #fff;
+          }
+
+          &.type {
+            background-color: #DFE6EE;
+            color: #000;
+          }
+
+          &:hover::after {
+            opacity: 0;
+          }
+        }
+        
+      }
+
+      .mat-card-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0;
+
+        a {
+          display: grid;
+          grid-template-columns: 31px 1fr;
+          font-family: Nunito;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 19px;
+          font-size: 14px;
+          color: #B0BAC5;
+          align-items: center;
+
+          &:hover {
+            color: #31D68B;
+          }
+        }
+      }
+    }
+
+    .mat-card-subtitle {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 19px;
+      font-size: 16px;
+
+      span.title {
+        color: #762FE6;
+        font-weight: bold;
+      }
+
+      .mat-card-actions {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 110px);
+
+        a {
+          font-family: Nunito;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 19px;
+          font-size: 14px;
+          color: #B0BAC5 !important;
+
+          &:hover {
+            color: #31D68B !important;
+          }
+        }
+      }
+    }
+  }
+
+  .skillRecommended {
+    margin: 5px 0 0;
+  }
+
+  .skillChildDetails {
+    margin-left: 0 !important;
+
+    p {
+      margin: 0 0 5px;
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 19px;
+      font-size: 14px;
+
+      &.askTitle {
+        color: #762FE6;
+        font-weight: bold;
+      }
+
+      &.askLocation {
+        color: #333;
+      }
+    }
+
+    a {
+      font-size: 14px;
+    }
+  }
+}

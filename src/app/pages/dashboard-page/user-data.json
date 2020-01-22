@@ -1,0 +1,29 @@
+{
+  "results": [
+  {
+    "skillRecs": [
+        {
+            "skill": "UX Designer",
+            "recs": "200"
+        },
+        {
+            "skill": "Fitness Trainer",
+            "recs": "450"
+        },
+        {
+            "skill": "Babysitter",
+            "recs": "250"
+        }
+      ],
+      "crowdRecs": 
+        {
+            "given": "322",
+            "received": "75"
+        },
+        "reputation": "172",
+        "myCrowd":
+        {
+            "trust": [1,2,3,4,5]
+        }             
+  }]
+}

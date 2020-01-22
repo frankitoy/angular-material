@@ -1,0 +1,39 @@
+<div class="recsContent">
+  <div class="recsTitle">
+    <div class="recsTop">
+      <ng-container *ngIf="recType === 'ask'; else skillIcon">
+        <mat-icon class="ellipse" svgIcon="ellipse"></mat-icon>
+        <a routerLink="/user/{{ data.user_id }}/ask/{{ data.id }}">{{ data.title }}</a>
+      </ng-container>
+      <ng-template #skillIcon>
+        <mat-icon svgIcon="check-circle-outline"></mat-icon>
+        <a routerLink="/user/{{ data.user_id }}/skill/{{ data.id }}">{{ data.title }}</a>
+      </ng-template>
+    </div>
+    <div class="recsBottom">
+      <div *ngIf="recType === 'skill'">
+        <mat-icon svgIcon="claps"></mat-icon>
+        320
+      </div>
+      <div>
+        <mat-icon svgIcon="group"></mat-icon>
+        17
+      </div>
+    </div>
+  </div>
+  <div class="recsRight">
+    <div class="recsRecieve">      
+      <mat-icon svgIcon="favorite"></mat-icon>
+      <ng-container *ngIf="recType === 'skill'; else askRec">
+          {{ skillRecs }}
+      </ng-container>
+      <ng-template #askRec>
+        {{ askRecs }}
+      </ng-template>
+      <span>&nbsp;recs</span>
+    </div>
+    <div class="recsNew" [ngClass]="{ 'askRecsNew': recType === 'ask' }">
+      +3 <span>&nbsp;new</span>
+    </div>
+  </div>
+</div>

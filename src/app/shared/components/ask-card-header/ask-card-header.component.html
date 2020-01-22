@@ -1,0 +1,28 @@
+<mat-card class="c-ask-user">
+  <zpc-app-loader *ngIf="!isLoaded; else userLoaded"></zpc-app-loader>
+  <ng-template #userLoaded>
+    <mat-card-header >
+      <div mat-card-avatar>
+        <img [src]="user.avatar" alt="user avatar">
+      </div>
+      <mat-card-title>
+        {{ user.first_name }}  {{ user.last_name }} 
+        <span *ngIf="type === 'skill'; else askType">
+          <ng-container *ngIf="relation === 'owner'; else otherRelation">(you) </ng-container>
+          <ng-template #otherRelation>
+            {{ relation | uppercase }}
+            <mat-chip-list>
+              <mat-chip class="primary">{{ user?.rating || 0 }}</mat-chip>
+            </mat-chip-list>
+          </ng-template>
+          offering services</span>
+        <ng-template #askType>
+          <span> is looking for a good <span class="bold">{{ ask.title | titlecase }} <span *ngIf="ask.address">in  {{ ask.address | titlecase }}</span></span></span>
+        </ng-template>
+      </mat-card-title>
+      <mat-card-subtitle>March 10</mat-card-subtitle> 
+      <!-- <mat-card-subtitle> {{ ask.title | titlecase }}  <span *ngIf="ask.address">in  {{ ask.address | titlecase }}</span></mat-card-subtitle> -->
+
+      </mat-card-header>
+  </ng-template>
+</mat-card>

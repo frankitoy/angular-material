@@ -1,0 +1,118 @@
+
+<mat-card class="userIntro">
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item class="profile-wrap">
+        <div class="c-profile-header_avatar">
+          <img src="assets/img/blank-user.png" alt="Avatar" *ngIf="!isUserLoaded; else showAvatar">
+          <ng-template #showAvatar>
+            <img src="{{ avatar }}" alt="Avatar" />
+          </ng-template>
+        </div>
+      </mat-list-item>
+      <mat-list-item class="c-profile-header_title">
+        <h4 class="c-profile-header_name">{{ firstName || 'N/A' }} {{ lastName || 'N/A' }}</h4>
+      </mat-list-item>
+      <mat-list-item class="c-profile-location">
+        <div class="c-profile-location-content">
+          <p class="c-profile-header_location"><mat-icon svgIcon="location">location_on</mat-icon> Melbourne, AU  </p>
+          <span class="rep-count">150</span>
+        </div>
+    </mat-list-item>
+      <!--
+      <mat-list-item class="c-profile-header_title">
+          <span class="rep-count">150</span>
+      </mat-list-item>
+      -->
+      <zpc-app-loader *ngIf="!isLoaded; else introLoaded"></zpc-app-loader>
+
+      <ng-template #introLoaded>
+        <mat-divider></mat-divider>
+        <div class="list-items-wrap skills">
+          <!--<h6>Skill Cards</h6>-->
+          <div *ngIf="_skills?.length; else noSkills">
+            <mat-list-item *ngFor="let skill of _skills">
+              <!-- <mat-icon mat-list-icon svgIcon="star"></mat-icon> -->
+              <span matLine>{{ skill.title }}</span> <span class="reputation">123</span>
+            </mat-list-item>
+          </div>
+          <ng-template #noSkills>
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="star"></mat-icon>
+              <span matLine>No skills yet.</span>
+            </mat-list-item>           
+          </ng-template>
+        </div>
+
+        <mat-divider></mat-divider>
+        
+        <div class="list-items-wrap">
+            <!--
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="zc"></mat-icon>
+              <span matLine>Reputation <span class="bg-circle">{{ reputationCount || 0}}</span></span> 
+            </mat-list-item>
+            -->
+            <mat-list-item >
+              <p>Helped with
+                <mat-icon mat-list-icon svgIcon="recs-pink" class="icon-pos"></mat-icon>
+                <span class="reputation">{{ recCount || 0 }} Recs</span>
+              </p>
+              <!--<span matLine>Recs given <span class="bg-comment">{{ recCount || 0 }}</span></span> -->
+            </mat-list-item>
+        </div>
+  
+        <mat-divider></mat-divider>
+
+        <div class="list-items-wrap">
+          <!-- <h6>Trusted Crowds</h6> -->
+          <mat-list-item>
+            <!-- <mat-icon mat-list-icon svgIcon="group"></mat-icon> -->
+            <p>Trusts <a routerLink="/profile/crowd" class="purple-text">crowd f1 {{ crowdCount }}</a></p>
+          </mat-list-item>
+    
+          <mat-list-item>
+            <!-- <mat-icon mat-list-icon svgIcon="group"></mat-icon> -->
+            <p>Trusted by <a routerLink="/profile/about" class="purple-text">{{ crowdOtherCount }} crowds</a></p>
+          </mat-list-item>
+        </div>
+  
+        <mat-divider></mat-divider>
+  
+        <div class="git-wrap">
+          <h6>Get In Touch</h6> 
+          <mat-list-item>                                                                  
+            <mat-tab-group selectedIndex="0">
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <img alt="ZippyCrowd Logo" src="/assets/img/z-logo-m-1.png">
+                </ng-template>
+                <p class="profile-url">
+                    <a href="/user/{{ userId }}" title="User Profile">zippycrowd.com/user/{{ userId }}</a>                 
+                </p>
+                <a class="share-wrap purple-text" (click)="openSocialShareDialog()">
+                  <mat-icon mat-list-icon svgIcon="share"></mat-icon>Share
+                </a>
+              </mat-tab>
+    
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">mail_outline</mat-icon>
+                </ng-template>
+                {{ email }}
+              </mat-tab>
+    
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">phone</mat-icon>
+                </ng-template>
+                {{ phone || 'N/A' }}
+              </mat-tab>
+            </mat-tab-group>                                            
+          </mat-list-item>
+        </div>
+
+      </ng-template>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,61 @@
+.c-crowd-main {
+  .card01 {
+    padding: 0 20px;
+    .content01 {
+      padding: 12px 5px;
+      float: left;
+    }
+    .content02 {
+      float: right;
+    }
+    .content02 ul {
+      overflow: hidden;
+      li {
+        list-style: none;
+        float: left;
+        text-align: center;
+        margin-left: 20px;
+        div {
+          background: #F4F7FA;
+          padding: 12px;
+          border-radius: 50%;
+          line-height: 10px;
+          cursor: pointer;
+        }
+        span {
+          font-size: 14px;
+          position: relative;
+          top: 3px;
+        }
+      }
+    }
+  }
+  .card02 {
+    padding: 20px 0 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 114px;
+    .mat-card-title {
+      text-indent: 20px;
+    }
+  }
+  .card03 {
+    padding-bottom: 0.75rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    .mat-card-content {
+      padding-top: 20px;
+    }
+  }
+  .load-more-wrap {
+    margin: 0;
+    text-align: center;
+    button {
+      color: #fff;
+      background: #762FE6;
+      border-radius: 20px;
+    }
+  }
+}

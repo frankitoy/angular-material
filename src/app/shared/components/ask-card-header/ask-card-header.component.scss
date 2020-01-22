@@ -1,0 +1,69 @@
+::ng-deep .mat-card.c-ask-user {
+  box-shadow: none !important;
+  padding: 0;
+
+  .mat-card-avatar {
+    width: 46px;
+    height: 46px;
+    border: 0;
+    background: url(/assets/img/bg/circle1.svg);
+    background-size: contain;
+    padding: .25rem;
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  .mat-card-header-text {
+    .mat-card-title {
+      margin: 0;//.5rem;
+      margin-left: 11px;
+      font-size: 1rem;
+      color: #000;
+      .bold {
+        font-weight: bold;
+      }
+    }
+
+    .mat-card-subtitle {
+      margin:0;// .5rem 0;
+      margin-left: 11px;
+
+      a {
+        font-size: .875 rem;
+        color: #762FE6;
+      }
+    }           
+  }   
+}
+
+:host {
+  ::ng-deep {
+    .mat-chip-list {
+      display: inline-block;
+
+      .mat-chip {
+        min-height: 22px;
+        font-family: Nunito;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 19px;
+        font-size: 14px;
+        text-align: center;
+        width: 38px;
+        display: flex;
+        justify-content: center;
+
+        &.primary {
+          background-color: #762FE6;
+          color: #fff;
+        }
+
+        &:hover::after {
+          opacity: 0;
+        }
+      }
+      
+    }
+  }
+}

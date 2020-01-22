@@ -1,0 +1,55 @@
+h3 {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #E6E6E6;
+}
+p {
+  font-size: 0.875rem;
+}
+ul.social-connect {
+  padding-left: 0;
+  border-bottom: 1px solid #E6E6E6;
+  padding-bottom: 15px;
+  li {
+    list-style: none;
+    padding-bottom: 20px;
+    position: relative;
+    strong {
+      width: 120px;
+      display: inline-block;
+    }
+    .mat-slide-toggle {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+.account-block02 {
+  ul {
+    padding-left: 0;
+    li {
+      list-style: none;
+      font-size: 14px;
+      position: relative;
+      margin-bottom: 30px;
+      button {
+        position: absolute;
+        right: 0;
+        background: #E6E6E6;
+        border-radius: 100px;
+        border: none;
+        font-size: 12px;
+        top: -10px;
+        cursor: pointer;
+        line-height: 30px;
+        box-shadow: none;
+      }
+    }
+  }
+}
+h6 {
+  font-weight: bold;
+}

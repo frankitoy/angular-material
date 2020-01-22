@@ -1,0 +1,56 @@
+:host {
+  .mat-card {
+    box-shadow: none !important;
+    padding: 0;
+
+    ::ng-deep .mat-card-header {
+      padding: 16px 18px;
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: bold;
+      line-height: 22px;
+      font-size: 16px;
+      color: #000;
+      text-transform: uppercase;
+
+      ::ng-deep .mat-card-header-text {
+        display: none;
+      }
+    }
+  }
+}
+
+:host {
+  ::ng-deep .mat-list-item {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 22px;
+    font-size: 16px;
+    color: #000000;
+    border-top: 1px solid #C5C5C5;
+
+    &:first-child .mat-icon svg path {
+      fill: #762FE6
+    }
+
+    &:nth-of-type(2) .mat-icon svg path {
+      fill: #D43274;
+    }
+
+    &:nth-of-type(3) .mat-icon svg path {
+      fill: #31D68B;
+    }
+
+    &:nth-of-type(4) .mat-icon svg path {
+      fill: #FF3365;
+    }
+
+    ::ng-deep .mat-list-item-content {
+      span {
+        position: absolute;
+        right: 25px;
+      }
+    }
+  }
+}

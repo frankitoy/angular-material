@@ -1,0 +1,40 @@
+<mat-card class="c-crowd-user">
+  <zpc-app-loader *ngIf="!isLoaded; else userLoaded"></zpc-app-loader>
+  <ng-template #userLoaded>
+    <mat-card-header >
+      <div mat-card-avatar>
+        <img src="/assets/img/blank-user.png" alt="" *ngIf="user?.avatar === null else photo">
+        <ng-template #photo>
+          <img [src]="user?.avatar" alt="user avatar">
+        </ng-template>
+      </div>
+      <mat-card-title>
+        {{ user?.first_name }}  {{ user?.last_name }} 
+        <span *ngIf="type === 'skill'; else crowdType">
+          <ng-container *ngIf="relation === 'owner'; else otherRelation">(you) </ng-container>
+          <ng-template #otherRelation>
+            {{ relation | uppercase }}
+            <mat-chip-list>
+              <mat-chip class="primary">{{ user?.rating || 0 }}</mat-chip>
+            </mat-chip-list>
+          </ng-template>
+          offering services</span>
+        <ng-template #crowdType>
+          <span>
+            <span class="text-purple" *ngIf="data.relations !== 'you' else you">{{ data.relations }}</span>
+            <ng-template #you>
+                <span>({{ data.relations }})</span>
+            </ng-template>
+            looking for a good
+          </span>
+        </ng-template>
+      </mat-card-title>
+      <mat-card-subtitle> 
+        {{ data.title | titlecase }}
+        <span *ngIf="data.address">in {{ data.address | titlecase }}</span>
+        <br>
+        <span>{{ data?.created_at | date:'dd MMM' }}</span>
+      </mat-card-subtitle>
+      </mat-card-header>
+  </ng-template>
+</mat-card>

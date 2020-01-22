@@ -1,0 +1,136 @@
+<div mat-dialog-content class="crowd-zip-wrap">
+  <div class="c-modal--close">
+    <button class="c-btn" type="button" (click)="cancel()">
+      <img src="/assets/img/icons/icon-close.svg" alt="Close">
+    </button>
+  </div>
+  <img src="/assets/img/logo.svg" class="c-modal-zip-logo" alt="Logo">
+  <div class="c-modal-zip-header">
+    <h5>ZippyCrowd works best with friends!</h5>
+    <p>Add your favorite friends and pros to your crowd...</p>
+  </div>
+
+  <div mat-dialog-content  class="c-modal-zip-content">
+    
+    <mat-tab-group [selectedIndex]="0" dynamicHeight="true">
+      <mat-tab label="CROWD f2 ({{ filteredF2Count || 0 }})">
+        <p class="text-center">See if anyone you know is already on ZippyCrowd</p>
+        <form class="search-bar">
+          <span class="at-icon">
+            <mat-icon mat-list-icon svgIcon="at"></mat-icon>
+          </span>
+          <input matInput [formControl]="myControl" (blur)="handleSearchOnBlur()" autofocus="true" placeholder="Search for people in ZippyCrowd" [matAutocomplete]="auto" type="text">
+          <span class="search-icon">
+            <mat-icon role="img">search</mat-icon>
+          </span>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option class="crowd-zip-filter-option" *ngFor="let crowd of crowds" [value]="crowd.first_name+' '+crowd.last_name">
+              <div class="img-wrap">
+                <img src="assets/img/blank-user.png" alt="">
+              </div>
+              <div class="content-wrap">
+                <p>{{ crowd.first_name }} {{ crowd.last_name }}</p>
+                <p><span class="purple-text">UX Designer</span> in {{ crowd.city }}, {{ crowd.state }}</p>
+              </div>
+              <button class="btn-purple-sm" (click)="handleF2ZipViaSearch($event, crowd.id)" *ngIf="crowd.relation !== 'f1'">
+                <mat-icon mat-list-icon svgIcon="plus"></mat-icon>zip
+              </button>
+              <button class="btn-purple-sm f1Crowd" *ngIf="crowd.relation === 'f1'">
+                <mat-icon mat-list-icon svgIcon="check"></mat-icon>f1
+              </button>
+            </mat-option>
+          </mat-autocomplete>
+        </form>
+        <div>
+          <mat-list class="crowd-list">
+            <zpc-app-loader *ngIf="!isLoadedF2; else loadedF2" class="loader"></zpc-app-loader>
+            <ng-template #loadedF2>
+              <ng-container *ngIf="filteredF2Count; else noF2">
+                <mat-list-item *ngFor="let f2 of filteredF2 | async">
+                  <img src="assets/img/blank-user.png" alt="">
+                  <div class="list-item-content">
+                    <span class="name">{{ f2.first_name }} {{ f2.last_name }}</span>
+                    <span class="green-text">f2</span>
+                    <span class="count">{{ f2.rating || 'N/A' }}</span>
+                  </div>
+                  <button class="btn-purple-sm" (click)="handleF2Zip($event, f2.id)">
+                    <mat-icon mat-list-icon svgIcon="plus"></mat-icon>zip to crowd
+                  </button>
+                </mat-list-item>
+              </ng-container>
+              <ng-template #noF2>
+                  {{filteredF2?.length}}
+                <p class="noF2">No F2 crowd yet.</p>
+              </ng-template>
+            </ng-template>
+          </mat-list> 
+        </div>
+      </mat-tab>
+      <mat-tab label="FACEBOOK FRIENDS ({{ filteredFBCount || 0 }})">
+          <p class="text-center" *ngIf="provider === 'GOOGLE'; else fb">Please use FB login to see your friends.</p>
+          <ng-template #fb>
+            <p class="text-center">See if anyone you know is already on ZippyCrowd</p>
+            <div class="otherFriendsBlock" *ngIf="isOtherFriendsVisible">
+              <div class="friendsImg">
+                <img class="img01" src="assets/img/blank-user.png" alt="">
+                <img class="img02" src="assets/img/blank-user.png" alt="">
+              </div>
+              <p>{{ friendName1 }}, {{ friendName2 }} +{{ fbCrowd.length - 2 }} other Facebook Friends on ZippyCrowd</p>
+            </div>
+              <div>
+                <mat-list class="crowd-list">
+                  <zpc-app-loader *ngIf="!isLoadedFB; else loadedFB" class="loader"></zpc-app-loader>
+                  <ng-template #loadedFB>
+                    <ng-container *ngIf="filteredFBCount; else noF2">
+                      <mat-list-item *ngFor="let fb of filteredFB | async">
+                        <img src="assets/img/blank-user.png" alt="">
+                        <div class="list-item-content">
+                          <span class="name">{{ fb.name }}</span>
+                        </div>
+                        <button class="btn-purple-sm" (click)="handleFBZip($event, fb.id)">
+                          <mat-icon mat-list-icon svgIcon="plus"></mat-icon>zip to crowd
+                        </button>
+                      </mat-list-item>
+                    </ng-container>
+                    <ng-template #noF2>
+                        {{filteredFB?.length}}
+                      <p class="noF2">No Facebook friends yet.</p>
+                    </ng-template>
+                  </ng-template>
+                </mat-list> 
+              </div>
+          </ng-template>        
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="invite-wrap">
+    <h6>Not on ZippyCrowd yet?</h6>
+    <ul>
+      <li>Invite with</li>
+      <li>
+        <button (click)="handleFBInvite()">
+          <img src="/assets/img/icons/ic-fb.svg" alt="facebook">
+          Facebook
+        </button>
+      </li>
+      <li>
+        <button (click)="handleMessengerInvite()">
+          <img src="/assets/img/icons/ic-messenger.svg" alt="messenger">
+          Messenger
+        </button>
+      </li>
+      <li>
+        <button (click)="handleWhatsAppInvite('sp')" *ngIf="isSmallScreen; else whatsAppSharePC">
+          <img src="/assets/img/icons/ic-whatsapp.svg" alt="whatsapp">
+          <span>Whatsapp</span>
+        </button>
+        <ng-template #whatsAppSharePC>
+          <button (click)="handleWhatsAppInvite('pc')">
+            <img src="/assets/img/icons/ic-whatsapp.svg" alt="whatsapp">
+            <span>Whatsapp</span>
+          </button>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="cs-header">
+    <button class="c-btn" type="button" (click)="closeDialog()">
+      <img src="/assets/img/icons/ic-ex.svg" alt="close">
+    </button>
+  
+    <div class="content-block01">
+      <img src="/assets/img/icons/ic-chat-heart.svg" alt="create">
+      <h3>Asking Recommendations</h3>  
+    </div>
+    <mat-horizontal-stepper linear #stepper>
+      <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+        <h4>Who are you looking for?</h4>
+        <form [formGroup]="firstFormGroup" class="first-form-group">
+          <ng-template matStepLabel></ng-template>
+          <mat-form-field appearance="outline" class="noTitle">
+            <!-- <mat-label>Skill Card Title</mat-label> -->
+            <input matInput formControlName="skillCardCtrl" #skillTitle placeholder="Select or type your skill or service you need" (keyup)="handleSkillChange($event.target.value)">
+          </mat-form-field>
+          <mat-selection-list (selectionChange)="handleSkillChange($event.option.value)">
+            <mat-list-option *ngFor="let skill of skillsTitle" [value]="skill.title">
+              {{ skill.title }}
+            </mat-list-option>
+          </mat-selection-list>
+          <div>
+            <button mat-button matStepperNext class="next-step">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+        <h4 class="step2Header">Add more details <br>to get better recommendations</h4> 
+        <form [formGroup]="secondFormGroup" class="second-form-group">
+          <ng-template matStepLabel></ng-template>
+          <mat-form-field appearance="outline" class="skillInput">
+            <!-- <mat-label>Skill Card Title</mat-label> -->
+            <input matInput formControlName="skillCardCtrl" placeholder="Select or type your skill title" (keyup)="handleSkillCardChange($event)">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{ checked ? 'Any city' : 'Location' }}</mat-label>
+            <input matInput type="text" [formControlName]="'location'" #location ngx-google-places-autocomplete #placesRef="ngx-places"
+              (onAddressChange)="handleAddressChange($event)">
+            <div matSuffix>
+              <mat-slide-toggle class="ask-form-slide-toggle-field" color="primary" [checked]="checkedLocation"
+                formControlName="anyLocation" (toggleChange)="toggleChange()">
+                <mat-placeholder class="placeholder hide">Any location</mat-placeholder>
+              </mat-slide-toggle>
+            </div>
+          </mat-form-field>
+          <mat-form-field class="desc-wrap">
+            <textarea class="description" matInput placeholder="Textarea" #description formControlName="descriptionCtrl" #desc maxlength="150" placeholder="Additional Details (Optional)"></textarea>
+            <mat-hint align="end">{{description.value.length}} / 150</mat-hint>
+          </mat-form-field>
+          <div class="find-wrap">
+            <p>Need fo find by</p>
+            <mat-chip-list>
+              <mat-chip color="primary" (click)="handleFindClick('anytime')" [class.active]="findDuration === 'anytime'">Anytime</mat-chip>
+              <mat-chip color="primary" (click)="handleFindClick('day')" [class.active]="findDuration === 'day'">1 day</mat-chip>
+              <mat-chip color="primary" (click)="handleFindClick('week')" [class.active]="findDuration === 'week'">1 week</mat-chip>
+              <mat-chip color="primary" (click)="handleFindClick('month')" [class.active]="findDuration === 'month'">1 month</mat-chip>
+            </mat-chip-list>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext class="next-step">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step class="last-step">
+        <h4 class="txt-center">Promote to friends <br> to get better recommendations</h4>
+        <div class="last-step-block01">
+          <div class="img-wrap">
+              <img [src]="userAvatar || 'assets/img/blank-user.png'" alt="user avatar">
+          </div>
+          <div class="content-wrap">
+            <p>{{ fullName }} (you) <span class="off-service">is looking for a good</span></p>
+            <p><span class="purple-text fwb">{{ skillTitle.value }}</span> in {{ checkedLocation ? 'Any Location' : location.value || 'Any Location' }}</p>
+            <p class="description">{{ desc.value }}</p>
+          </div>
+          <div class="stats-wrap">
+            <ul>
+              <li>0 View</li>
+              <li>0 Share</li>
+              <li>0 Boost</li>
+            </ul>
+            <p>You have no <img src="/assets/img/icons/ic-heart.svg" alt="heart"> recs yet</p>
+          </div>
+          <div class="promote-wrap">
+            <p (click)="socialToggle()">
+              <img src="/assets/img/icons/ic-promote.svg" alt="promote"> Promote to friends 
+              <i class="material-icons" *ngIf="socialStatus; else expandMore">expand_less</i>
+              <ng-template #expandMore>
+                  <i class="material-icons">expand_more</i>
+              </ng-template>
+            </p>
+          </div>
+          <div class="social-wrap" *ngIf="socialStatus">
+            <ul class="socialList">
+              <li>
+                <img src="/assets/img/icons/ic-zippy.svg" alt="heart">
+                My Crowd
+              </li>
+              <li>
+                <img src="/assets/img/icons/ic-fb.svg" alt="facebook" (click)="handleFBInvite()">
+                Facebook
+              </li>
+              <li>
+                <img src="/assets/img/icons/ic-messenger.svg" alt="messenger" (click)="handleMessengerInvite()">
+                Messenger
+              </li>
+              <li>
+                <img src="/assets/img/icons/ic-whatsapp.svg" alt="whatsapp" (click)="handleWhatsAppInvite('sp')" *ngIf="isSmallScreen; else whatsAppSharePC">
+                <ng-template #whatsAppSharePC>
+                    <img src="/assets/img/icons/ic-whatsapp.svg" alt="whatsapp" (click)="handleWhatsAppInvite('pc')">
+                </ng-template>
+                Whatsapp
+              </li>
+            </ul>
+          </div>
+          <button class="done-btn" (click)="createAskRec()">Done</button>
+        </div>
+        <ng-template matStepLabel></ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>

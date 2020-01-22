@@ -1,0 +1,57 @@
+<mat-card>
+  <zpc-app-loader *ngIf="!isLoaded; else crowdLoaded"></zpc-app-loader>
+  <ng-template #crowdLoaded>
+    <mat-tab-group>
+      <mat-tab label="Crowd I Trust">
+        <div class="o-mycrowd--heading">
+          <h6>Crowd I trust: </h6>
+          <span>{{ crowdITrust?.length }} </span>
+          <span class="new" [hidden]="!totalCrowdsTrustMe"> + {{ totalCrowdsITrust }} New</span>
+          <a [hidden]="!crowdITrust?.length" routerLink="/profile/crowd" title="View All">View All</a>
+        </div>
+        <div class="o-mycrowd--list" [ngStyle]="{ 'justify-content': !crowdITrust?.length ? 'center' : 'flex-start' }">
+          <!-- temp data new user -->
+          <ng-container *ngIf="crowdITrust?.length; else noCrowdITrust">
+            <div class="c-user-avatar" *ngFor="let user of crowdITrust">
+              <a routerLink="/profile/crowd" [title]="user.uid">
+                <img src="{{ user.avatar || 'assets/img/blank-user.png' }}" alt="Avatar" />
+                <div class="c-user-avatar--name">{{ user.first_name }}</div>
+              </a>
+              <span class="c-user-avatar--badge">New</span>
+            </div>
+          </ng-container>
+          <ng-template #noCrowdITrust>
+            <p class="noCrowd">No Crowds that I Trust yet.</p>
+          </ng-template>
+        </div>
+      </mat-tab>
+      <mat-tab label="Crowds Trust Me">  
+        <div class="o-mycrowd--heading">
+          <h6>Crowds Trust Me: </h6>
+          <span>{{ crowdTrustMe?.length }} </span>
+          <span class="new" [hidden]="!totalCrowdsTrustMe"> + {{ totalCrowdsTrustMe }} New</span>
+        </div>                      
+        <div class="o-mycrowd--list" [ngStyle]="{ 'justify-content': !crowdTrustMe?.length ? 'center' : 'flex-start' }">
+          <!-- temp data new user -->
+          <ng-container *ngIf="crowdTrustMe?.length; else noCrowdTrustMe">
+            <div class="c-user-avatar" *ngFor="let user of crowdTrustMe">
+              <a routerLink="/profile/crowd" [title]="user.uid">
+                <img [src]="setAvatar(user.avatar)" alt="Avatar" />
+                <div class="c-user-avatar--name">{{ user.first_name }}</div>
+              </a>
+              <span class="c-user-avatar--badge" [ngStyle]="{ 'display': !user.new ? 'none' : 'block' }">New</span>
+            </div>
+          </ng-container>
+          <ng-template #noCrowdTrustMe>
+            <p class="noCrowd">No Crowds Trust me yet.</p>
+          </ng-template>
+        </div>
+      </mat-tab>
+      <mat-tab mat-align-tabs="end" disabled>
+          <ng-template mat-tab-label>
+            <button mat-raised-button color="primary" type="submit" (click)="openCrowdZip()">Zip More to My Crowd</button>
+          </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </ng-template>
+</mat-card>

@@ -1,0 +1,199 @@
+$blue: #762FE6;
+
+.p-ask {       
+    //.mat-card-header {
+       // background-color: #F3F6F9;
+    //}
+    &-askRecs {
+        padding: 1rem 0 4px;
+        clear: both; 
+        p {
+            line-height: 40px;
+
+            button {
+                width: 160px;
+                height: 40px;
+                border: 1px solid $blue;
+                border-radius: 20px;
+                color: $blue;
+                float: right;
+                text-transform: uppercase;
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }        
+    }
+}
+
+.c-asks-list {
+    padding: 0;
+    margin-top: 20px;
+    background: transparent;
+    .mat-card.c-asks-card {
+        margin-bottom: 1rem;
+    }
+    >.mat-card-content {
+        //padding-top: 1rem;
+        //padding-bottom: 2rem;
+        // height: 980px;
+        overflow-y: auto;
+        /*
+        margin-right: -1.5rem;
+        margin-left: -1.5rem;
+        margin-top: 25px;
+        padding: 0 1.5rem 2rem;
+        */
+        position: relative;
+
+        .text-center {
+            text-align: center;
+        }
+    }
+    .mat-divider {
+        z-index: 2;
+    }
+    .mat-card-actions {
+        text-align: center;
+        button {
+            color: $blue;
+        }
+
+        .loading {
+            margin: 0;
+            padding: 7px 0;
+        }
+    }
+    &-filters {
+        height: 44px;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        background-color: #F3F6F9;
+    }
+}
+
+/deep/.core-rail {
+    .p-asks--info {
+        margin-bottom: 0 !important;
+        border-radius: 0;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        .mat-icon {
+            vertical-align: middle;
+            margin-right: .6rem;
+        }
+        .asks-count {
+            color: #B0BAC5;
+        }
+        .mat-list {
+            .mat-list-item {
+                color: $blue;
+                height: 1.75rem;
+                line-height: .25;
+                padding: 0;
+                font-size: .875rem;
+                
+                .mat-icon {
+                    width: .5rem;
+                    height: .5rem;
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    margin-right: 18px !important;
+                }
+            }
+            .mat-list-item-content {
+                padding: 0;
+                font-size: .875rem;
+            }
+        }
+        .mat-card-header {
+            .mat-card-title {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+.p-skills {
+    //General: for profile pages. TODO: make generic
+    // .mat-card {
+
+    // }
+    
+    &--info {
+        box-shadow: none!important;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-bottom: 0!important;
+        .mat-card-title {
+            margin: 0;
+            margin-bottom: 0;
+        }
+        .mat-card-content {
+            padding-bottom: .625rem;
+        }        
+        .mat-list-item {
+            height: 1.75rem;
+            line-height: .25;
+            /deep/.mat-list-item-content {
+                padding: 0;
+                font-size: .875rem;
+
+                .mat-icon {
+                    width: .75rem;
+                    height: .75rem;
+                }
+            }
+        }
+    }
+    &--tabs {
+        h5 {
+            margin: 29px 0 0;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        /deep/.mat-tab-header {
+            border-bottom: 0;
+            background: #F3F6F9;
+            padding: 0 0;
+            .mat-ink-bar {
+                background-color:  $blue;
+                height: 3px;
+            }           
+        }     
+        
+        /deep/.mat-tab-label-content {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333333;            
+        }
+        /deep/.mat-tab-label-active {
+                .mat-tab-label-content {
+                    color: $blue;
+                }
+            }
+        .inactive {
+            opacity: 0.3;
+        }
+        &-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            >.mat-card {
+                /*@extend .c-skill-card;*/
+                margin-right: 10px;   
+                margin-bottom: 20px;
+                text-align: center;          
+            }
+            >.mat-card:nth-child(3n+3) {
+                margin-right: 0px;
+            }
+            .mat-icon {
+                vertical-align: middle;
+                float: left;
+                margin-top: 5px;
+            }
+        }
+    }
+}

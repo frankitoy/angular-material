@@ -1,0 +1,37 @@
+<mat-card class="c-recs-user">
+  <div class="spinner" *ngIf="!isLoaded; else userLoaded">
+    <mat-spinner></mat-spinner>
+  </div>
+  <ng-template #userLoaded>
+    <mat-card-header >
+      <div mat-card-avatar>
+        <img [src]="data?.avatar" alt="user avatar">
+      </div>
+      <mat-card-title>
+        {{ data?.first_name | titlecase }}  {{ data?.last_name | titlecase }}
+        <mat-chip-list>
+          <mat-chip class="primary">{{ data?.rating || 0 }}</mat-chip>
+          <mat-chip class="type">
+            <ng-container *ngIf="type === 'parent'; else f1">
+              f2
+            </ng-container>
+            <ng-template #f1>
+              f1
+            </ng-template>
+          </mat-chip>
+        </mat-chip-list>
+        <ng-container *ngIf="type === 'child'">
+          <mat-card-subtitle class="skillChildDetails">
+            <p class="askTitle">Looking for a good UX Designer</p>
+            <a routerLink=".">View Ask</a>
+          </mat-card-subtitle>
+        </ng-container>
+      </mat-card-title>
+      <mat-card-subtitle *ngIf="type === 'parent'">
+        <span class="title">{{ 'Ux Designer' | titlecase }}</span><span *ngIf="data?.city"> in  {{ data?.city | titlecase }}</span>
+        <p class="viewRecText">View your recommendations to {{ data?.first_name | titlecase }}</p>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <p class="date" *ngIf="date">{{ date | date:'dd LLLL' }}</p>
+  </ng-template>
+</mat-card>

@@ -1,0 +1,123 @@
+:host {
+  > div {
+    padding-bottom: 80px;  
+  }
+  .skillRecs, .askRecs, .recsGiven {
+    padding: 0;
+    box-shadow: none;
+    border: 1px solid #C5C5C5;
+    margin-bottom: 20px !important;
+
+    .mat-card-header {
+      padding: .75rem 1.125rem 0;
+    
+      ::ng-deep .mat-card-header-text {
+        width: 100%;
+      
+        .mat-card-title {
+          p {
+            font-family: Nunito;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: normal;
+            color: #000;
+            margin: 0 0 0 40px;
+          }
+
+          .recCardHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          
+            .recCardTitle {
+              display: flex;
+              align-items: center;
+              font-family: Nunito;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 16px;
+              line-height: 22px;
+              text-transform: uppercase;
+              color: #333;
+
+              .recIcon {
+                width: 32px;
+                height: 32px;
+                margin-right: 8px;
+              }
+            }
+
+            .seeAll {
+              font-family: Nunito;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 22px;
+              text-transform: capitalize;
+              color: #1FC39B;
+            }
+          }
+        }
+      }
+    }
+
+    .noData {
+      text-align: center;
+      padding: 1em;
+      border-top: 1px solid #C5C5C5;
+    }
+  }
+
+  .askRecs {
+    .seeAll {
+      color: #FF3365 !important;
+    }
+  }
+
+  zpc-reccomendation {
+    display: block;
+    border-top: 1px solid #C5C5C5;
+    padding: 10px 1.125rem;
+  }
+
+  .mat-expansion-panel {
+    margin: 0;
+    border-top: 1px solid #C5C5C5 !important;
+    border-radius: 0 !important;
+    border-top: 0;
+    box-shadow: none;
+    padding: 15px 0;
+
+    &.mat-expanded {
+      padding-bottom: 0;
+    }
+  }
+
+  .mat-expansion-panel-header:hover {
+    background: transparent !important;
+  }
+
+  .mat-expansion-panel-header-description {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 22px;
+    font-size: 12px;
+    text-align: right;
+    color: #000;
+  }
+
+  .panel-content {
+    padding-left: 55px;
+
+    zpc-rec-given {
+      border-top: 1px solid #C5C5C5;
+      display: block;
+      padding: 17px 0 14px;
+    }
+  }
+}

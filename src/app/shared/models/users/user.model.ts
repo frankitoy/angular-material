@@ -1,0 +1,44 @@
+import { SocialLoginProviderType } from '../social/social-login-provider-type.enum';
+
+export interface User {
+  id?: string;
+  email: string;
+  token: string;
+  provider: SocialLoginProviderType;
+  first_name: string;
+  last_name: string;
+  uid?: string;
+  avatar?: string;
+  about?: string;
+  city?: string;
+  state?: string;
+  zip_code?: string;
+  street?: string;
+  country_code?: string;
+  remember_created_at?: string;
+  sign_in_count?: number;
+  current_sign_in_at?: string;
+  last_sign_in_at?: string;
+  current_sign_in_ip?: string;
+  last_sign_in_ip?: string;
+  profile_color?: string;
+  visits?: number;
+  email_notifications?: boolean;
+  show_email?: boolean;
+  phone?: string;
+  invitation_token?: string;
+  invitation_created_at?: string;
+  invitation_sent_at?: string;
+  invitation_accepted_at?: string;
+  invitation_limit?: string;
+  invited_by_id?: string;
+  invited_by_type?: string;
+  invitations_count?: number;
+  show_business_card_tutorial?: boolean;
+  initial_skill_card_created?: boolean;
+  confirmation_token?: string;
+  confirmed_at?: string;
+  confirmation_sent_at?: string;
+  authToken?: string;
+  fb_id: string;
+}

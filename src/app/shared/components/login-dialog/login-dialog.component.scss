@@ -1,0 +1,17 @@
+.custom-dialog-container .mat-dialog-container .c-modal-login {    
+
+    @media (max-width: 768px) {
+        padding: 1rem 0;
+        >* {
+            padding-left: 0;
+            padding-right: 0;
+            h3 {
+                font-size: 1.5rem;
+                margin: 0 0 .5rem;
+            }
+        }
+        .c-modal-login--controls button.btn--sm {
+            font-size: 13px;
+        }
+    }
+}

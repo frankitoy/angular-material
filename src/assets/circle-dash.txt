@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="40px" height="40px" viewBox="-10 -10 220 220">
+  <defs>
+    <linearGradient id="redyel" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#ff0000"/>   
+        <stop offset="100%" stop-color="#ff0000"/>   
+    </linearGradient>
+    <linearGradient id="yelgre" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ffff00"/>   
+        <stop offset="100%" stop-color="#ffff00"/>   
+    </linearGradient>
+    <linearGradient id="grecya" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#00ff00"/>   
+        <stop offset="100%" stop-color="#00ff00"/>   
+    </linearGradient>
+    <linearGradient id="cyablu" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#00ffff"/>   
+        <stop offset="100%" stop-color="#00ffff"/>   
+    </linearGradient>
+    <linearGradient id="blumag" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#0000ff"/>   
+        <stop offset="100%" stop-color="#0000ff"/>   
+    </linearGradient>
+  </defs>
+
+  <g fill="none" stroke-width="2" transform="translate(100,100)">
+    <path d="M 62,-79 A 100,100 0 0,1 94,38" stroke="url(#redyel)"/>
+    <path d="M 92,42 A 100,100 0 0,1 2,102" stroke="url(#yelgre)"/>
+    <path d="M -2,102 A 100,100 0 0,1 -91,41" stroke="url(#cyablu)"/>
+    <path d="M -93,36 A 100,100 0 0,1 -62,-79" stroke="url(#blumag)"/>
+    <path d="M -58,-82 A 100,100 0 0,1 58,-82" stroke="url(#grecya)"/>
+  </g>
+</svg>

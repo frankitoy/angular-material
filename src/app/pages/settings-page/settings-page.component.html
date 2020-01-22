@@ -1,0 +1,76 @@
+<div class="settings-wrap">
+  <div class="section-top">
+    <div class="topbar-container">
+      <button class="btn" routerLink="/profile/about">Back to profile</button>
+      <button  class="save" mat-raised-button color="primary" (click)="handleSave()" [disabled]="!f.valid">Save</button>
+    </div>
+  </div>
+   <div class="main-section">
+    <div class="section01">
+      <zpc-sidenav-settings (activeLink)="handleActiveLinkClick($event)"></zpc-sidenav-settings>
+    </div>
+    <div class="section02" #prof>
+      <form [formGroup]="parentForm" #f="ngForm">
+        <div class="basic-info">
+          <h3>BASIC INFORMATION</h3>
+          <div class="basic-section">
+            <div class="basic-block01">
+              <div class="img-wrap">
+                <img src="{{ profile?.avatar || '/assets/img/blank-user.png' }}" alt="Profile image">
+              </div>
+            </div>
+            <div class="basic-block02">
+              <div 
+                class="form-group"
+                [class.error]="!parentForm.get('firstName').valid && (parentForm.get('firstName').dirty || parentForm.get('firstName').touched)"
+              >
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" formControlName="firstName">
+                <span class="tooltip tooltip-top" *ngIf="!parentForm.get('firstName').valid && (parentForm.get('firstName').dirty || parentForm.get('firstName').touched)">      
+                  <small class="form-text d-inline">First Name is required</small>
+                </span>
+              </div>
+              <div 
+                class="form-group"
+                [class.error]="!parentForm.get('lastName').valid && (parentForm.get('lastName').dirty || parentForm.get('lastName').touched)"
+              >
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" formControlName="lastName">
+                <span class="tooltip tooltip-top" *ngIf="!parentForm.get('lastName').valid && (parentForm.get('lastName').dirty || parentForm.get('lastName').touched)">      
+                  <small class="form-text d-inline">Last Name is required</small>
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" ngx-google-places-autocomplete #placesRef="ngx-places" formControlName="location">
+              </div>
+            </div>
+          </div>
+          <div class="basic-block03">
+            <div class="form-group">
+              <label for="about">About You</label>
+              <textarea type="text" id="about" name="about" formControlName="about" maxlength="300" #about ></textarea>
+              <span class="wordCount">{{about?.value.length}}/300</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-details">
+          <zpc-contact-details [parentForm]="parentForm"></zpc-contact-details>
+        </div>
+
+        <div class="notifications" #notif>
+          <zpc-notifications-settings [parentForm]="parentForm"></zpc-notifications-settings>
+        </div>
+
+        <div class="social-networks" #social>
+          <zpc-social-networks [parentForm]="parentForm"></zpc-social-networks>
+        </div>
+
+        <div class="account-settings" #account>
+          <zpc-account-settings [parentForm]="parentForm" (deleteAccount)="handleDeleteAccount()"></zpc-account-settings>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

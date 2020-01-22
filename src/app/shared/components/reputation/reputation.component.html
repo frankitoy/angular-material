@@ -1,0 +1,18 @@
+<mat-card class="o-reputation-card">
+  <zpc-app-loader *ngIf="!isLoaded; else reputationLoaded"></zpc-app-loader>
+  <ng-template #reputationLoaded>
+    <mat-card-header>
+      <mat-card-title>
+        Reputation
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h3 style="text-align: center;">
+        {{ reputation }}
+      </h3>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" (click)="onReputation()">Stand Out! </button>
+    </mat-card-actions>
+  </ng-template>
+</mat-card>

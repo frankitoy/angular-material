@@ -1,0 +1,50 @@
+<div mat-dialog-content>
+  <div class="c-modal--close">
+      <button class="c-btn" type="button" (click)="closeDialog()">
+        <img src="/assets/img/icons/icon-close.svg" alt="Close">
+      </button>
+  </div>
+  <div class="c-modal-social">
+      <div class="c-modal-social--header">
+        <h4>Share Profile</h4>
+        <p>Spread the word. Share this profile.</p>
+      </div>
+      <div class="c-modal-social-list" cdkFocusInitial>
+          <ul class="social-list">
+            <li>
+              <button (click)="handleFacebookShare()">
+                <img src="/assets/icons/social/fb.jpg" alt="facebook">
+              </button>
+              <span>Facebook</span>
+            </li>
+            <li>
+              <share-button 
+                shareButton="messenger" 
+                url="shareUrl" 
+                theme="circles-dark" 
+                button="messenger" 
+                *ngIf="isSmallScreen; else messengerSharePC"
+              >
+              </share-button>
+              <ng-template #messengerSharePC>
+                <button (click)="handleMessengerShare()">
+                  <img src="/assets/icons/social/messenger.jpg" alt="messenger">
+                </button>
+              </ng-template>
+              <span>Messenger</span>
+            </li>
+            <li>
+              <button (click)="handleWhatsAppShare('sp')" *ngIf="isSmallScreen; else whatsAppSharePC">
+                <img src="/assets/icons/social/whatsapp.jpg" alt="whatsapp">
+              </button>
+              <ng-template #whatsAppSharePC>
+                <button (click)="handleWhatsAppShare('pc')">
+                  <img src="/assets/icons/social/whatsapp.jpg" alt="whatsapp">
+                </button>
+              </ng-template>
+              <span>Whatsapp</span>
+            </li>
+          </ul>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<h3>ACCOUNT SETTINGS</h3>
+<div [formGroup]="parentForm">
+  <div class="account-block01">
+    <h6>LOGIN OPTIONS</h6>
+    <p>Use your Facebook or Google account to log in to ZippyCrowd.</p>
+    <ul class="social-connect">
+      <li>
+        <strong>Facebook</strong>
+        <!-- {{provider}} temp fix--> 
+        <span>{{ fbconnect ? 'connected' : 'not connected'}}</span>
+        <mat-slide-toggle
+          formControlName="fbconnect"
+          class="example-margin"
+          color="primary"
+          [checked]="isCheckFB"
+          (toggleChange)="handleToggleFBConnect()"
+        >
+        </mat-slide-toggle>
+      </li>
+      <li>
+        <strong>Google</strong>
+        <span>{{ gconnect ? 'connected' : 'not connected'}}</span>
+        <mat-slide-toggle
+          formControlName="gconnect"
+          class="example-margin"
+          color="primary"
+          [checked]="isCheckGoogle"
+          (toggleChange)="handleToggleGoogleConnect()"
+        >
+        </mat-slide-toggle>
+      </li>
+    </ul>
+  </div>
+  <div class="account-block02">
+    <h6>ACCOUNT CHANGES</h6>
+    <ul>
+      <li class="deactive-li">
+        <span>Hide your posts and profile</span>
+        <mat-slide-toggle
+          formControlName="active"
+          class="example-margin"
+          color="primary"
+          [checked]="isCheckDeactive"
+          (toggleChange)="handleToggleDeactiveAccount()"
+        >
+        Deactive account
+        </mat-slide-toggle>
+      </li>
+      <li>
+        <span>Close your account permanently</span>
+        <button mat-raised-button (click)="handleToggleDeleteAccount()">Delete account</button>
+      </li>
+    </ul>
+  </div>
+</div>

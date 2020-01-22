@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="21px" viewBox="0 0 22 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>DB3089F8-809A-4063-BCA5-419CE4EABE4B-645-000086B8F12BF6C4</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02-Dashboard---Hamburger-Expanded" transform="translate(-1209.000000, -87.000000)">
+            <g id="Side-bar" transform="translate(1180.000000, 0.000000)">
+                <g id="bottomInfo" transform="translate(0.000000, 75.000000)">
+                    <g id="blog">
+                        <g id="ic-blog" transform="translate(30.000000, 13.000000)">
+                            <g>
+                                <ellipse id="Oval" fill="#7D1CFF" fill-rule="nonzero" cx="10" cy="9.787" rx="1.304" ry="1.277"></ellipse>
+                                <path d="M5.652,18.596 C0.696,16.256 -1.39,10.426 1,5.532 C3.39,0.638 9.391,-1.362 14.348,0.979 C19.304,3.319 21.39,9.19 19,14.043 C18,16.043 16.391,17.66 14.348,18.596" id="Shape" stroke="#7D1CFF"></path>
+                                <path d="M7.565,14.766 C4.739,13.446 3.565,10.128 4.913,7.404 C6.261,4.681 9.653,3.489 12.435,4.809 C15.217,6.128 16.435,9.447 15.087,12.17 C14.5270698,13.3140048 13.5906927,14.2306092 12.435,14.766 M10,9.787 L10,19.997" id="Shape" stroke="#7D1CFF"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

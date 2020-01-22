@@ -1,0 +1,47 @@
+<!-- <zpc-header-top></zpc-header-top> -->
+<!-- <zpc-header-top></zpc-header-top> -->
+<div class="p-welcome" *ngIf="(user$ | async)">
+  <div>
+    <h3>Welcome onboard {{ (user$ | async).first_name }} {{ (user$ | async).last_name }}!</h3>
+    <mat-card>
+      <mat-card-header>
+        <md-card-avatar>
+          <img class="md-user-avatar" [attr.src]="(user$ | async).avatar">
+        </md-card-avatar>
+      </mat-card-header>
+      <mat-card-content>
+        <form #mainForm novalidate [formGroup]="welcomeFormGroup" (submit)="submitForm($event)">
+          <div class="input-card">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput placeholder="First Name" aria-label="first name" type="text" [formControlName]="'firstName'">
+              <mat-error *ngIf="welcomeFormGroup.get('firstName').hasError('required')">Please enter first name</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="input-card">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput aria-label="last name" placeholder="Last Name" type="text" [formControlName]="'lastName'">
+              <mat-error *ngIf="welcomeFormGroup.get('lastName').hasError('required')">Please enter last name</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="input-card">
+            <mat-form-field appearance="outline">
+              <input matInput type="text" [formControlName]="'location'" placeholder="location" ngx-google-places-autocomplete #placesRef="ngx-places"
+                (onAddressChange)="handleAddressChange($event)">
+              <mat-error *ngIf="welcomeFormGroup.get('location').hasError('required')">Please enter location</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="input-card-btn">
+            <button *ngIf="(updatingUser$ | async)" mat-raised-button color="primary" disabled>
+              Confirm
+              <mat-icon><mat-spinner color="accent" diameter="20">
+              </mat-spinner></mat-icon>
+            </button>
+            <button *ngIf="!(updatingUser$ | async)" mat-raised-button color="primary" type="submit">Confirm</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

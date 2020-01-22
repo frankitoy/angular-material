@@ -1,0 +1,16 @@
+<div class="notif-block01">
+  <h3>NOTIFICATION SETTINGS</h3>
+  <p>We'll send you all important updates to help you with the best recommendations.</p>
+</div>
+<div class="notif-block02" [formGroup]="parentForm">
+  <h6>Email notifications</h6>
+  <p>New asks, skills, recommendations from your trusted crowd</p>
+  <mat-slide-toggle
+    formControlName="emailNotif"
+    class="example-margin"
+    color="primary"
+    [checked]="checked"
+    (toggleChange)="handleToggleEmailNotif()"
+  >
+  </mat-slide-toggle>
+</div>

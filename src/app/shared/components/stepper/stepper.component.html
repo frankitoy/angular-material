@@ -1,0 +1,39 @@
+<h2>Find people you need from people you trust</h2>
+<mat-horizontal-stepper [linear]="isLinear" #stepper [selectedIndex]="selectedIndex">
+  <mat-step [stepControl]="askFormGroup" [optional]="formGroupOptional" [editable]="formEditable" label="Create The Ask">
+    <section class="mat-typography">
+    <mat-card>
+      <mat-card-header>
+          <mat-card-title>
+            <mat-icon svgIcon="recs-pink"></mat-icon>                       
+            <span> Asking Recs </span>
+          </mat-card-title>         
+      </mat-card-header>
+      <mat-card-content>
+        <zpc-ask-form
+          [askForm]="askForm"
+          [askFormGroup]="askFormGroup"
+          [durationOptions]="durationOptions"
+          [enabledAdditionalDetails]="enabledAdditionalDetails"
+          [selectable]="true"
+          [professions]="professions"
+          (askFormUpdated)="askFormUpdated($event);"
+          *ngIf="askFormGroup">
+        </zpc-ask-form>
+      </mat-card-content>
+    </mat-card>
+
+  </section>
+  </mat-step>
+  <mat-step label="Ask friends" [optional]="formGroupOptional">
+    <section class="mat-typography" *ngIf="askInfo">
+      <zpc-ask-card [ask]="askInfo"></zpc-ask-card>     
+      <ng-container *ngIf="currentUser && currentUser.id === askInfo.user_id">
+        <div class="c-ask-details--bottom-buttons">
+            <button mat-button mat-raised-button color="primary" class="back" (click)="handleStepper(StepperState.ASK_DETAILS)">Go Back</button>
+            <button mat-button mat-raised-button color="primary" matStepperNext (click)="handleStepper(StepperState.ALL_DONE)">All Done</button>
+        </div>        
+      </ng-container>
+    </section>
+  </mat-step>
+</mat-horizontal-stepper>

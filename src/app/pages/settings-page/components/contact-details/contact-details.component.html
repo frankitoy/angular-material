@@ -1,0 +1,21 @@
+<h3>CONTACT DETAILS</h3>
+<form [formGroup]="parentForm">
+  <div 
+    class="form-group"
+    [class.error]="!parentForm.get('email').valid && (parentForm.get('email').dirty || parentForm.get('email').touched)"
+  >
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" formControlName="email">
+    <span class="tooltip tooltip-top" *ngIf="!parentForm.get('email').valid && (parentForm.get('email').dirty || parentForm.get('email').touched)">      
+      <small class="form-text d-inline">Invalid email address</small>
+    </span>
+  </div>
+  <div class="form-group">
+    <label for="mobile">Mobile</label>
+    <input type="text" id="mobile" name="mobile" formControlName="mobile">
+  </div>
+  <div class="form-group">
+    <label for="website">Personal Website</label>
+    <input type="text" id="website" name="website" formControlName="website">
+  </div>
+</form>

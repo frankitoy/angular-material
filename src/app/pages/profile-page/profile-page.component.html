@@ -1,0 +1,47 @@
+<header role="banner" class="c-profile-header">
+  
+  <div class="c-profile-header--inner-wrap">
+  <!--{{userType}} <a class="btn-purple" (click)="openCrowdZip()">
+      <mat-icon mat-list-icon svgIcon="plus"></mat-icon>zip to crowd
+    </a> -->
+
+    <button mat-icon-button  class="btn-zip" (click)="zipToCrowd()" *ngIf="userType === 'f2'">
+      <span>f2 &nbsp;</span><mat-icon svgIcon="plus"></mat-icon> Zip to Crowd
+    </button>
+
+    <button mat-icon-button class="btn-menu" *ngIf="userType === 'f1'" [matMenuTriggerFor]="menu">
+      <mat-icon>done</mat-icon>
+      f1 Crowd <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="btn-menu-items">
+      <button mat-menu-item> Remove from Crowd </button>
+      <button mat-menu-item> Request to join </button>
+    </mat-menu>
+
+    <button mat-icon-button *ngIf="userType === 'f2' || userType === 'f2'">
+      <mat-icon>chat_bubble_outline</mat-icon> Chat
+    </button>
+
+    <button mat-icon-button *ngIf="userType === 'owner'" routerLink="/settings">
+      <mat-icon>settings</mat-icon> Edit
+    </button>
+
+    <button mat-icon-button class="btn-share" (click)="openSocialShareDialog()">
+      <mat-icon svgIcon="share"></mat-icon> Share
+    </button>
+  </div>
+</header>
+<div class="c-profile-tabs">
+  <div>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.link" routerLinkActive
+          #rla="routerLinkActive" [active]="rla.isActive">
+          {{ link.label }}
+      </a>
+    </nav>
+  </div>
+</div>
+
+<main role="main" class="c-profile-main">
+  <router-outlet></router-outlet>
+</main>

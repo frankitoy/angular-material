@@ -1,0 +1,27 @@
+// Import the necessary scss files here
+@import '~assets/stylesheets/scss/variables';
+@import '~assets/stylesheets/scss/main';
+
+:host {
+  flex: 1 1;
+  max-width: 1140px;
+  align-self: center;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  @include bp-medium {
+      flex-direction: row;
+  }
+  >* {               
+      padding: 1rem 0;
+      @include bp-medium {
+          flex: 1 1 100%;
+      }
+      //display: flex;
+      >div {
+          padding: 1rem;
+
+      }
+  }
+}

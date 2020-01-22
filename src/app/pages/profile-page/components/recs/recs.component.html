@@ -1,0 +1,128 @@
+<div>
+  <aside class="left-rail" role="presentation">
+    <zpc-intro></zpc-intro>
+  </aside>
+  <div class="core-rail" role="main">
+    <mat-card class="skillRecs">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="recCardHeader">
+            <div class="recCardTitle">
+              <mat-icon class="recIcon" svgIcon="skill-recs"></mat-icon> Skill Recs - Received
+            </div>
+            <a class="seeAll" [routerLink]="['../skills']">See All</a>
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <zpc-app-loader *ngIf="!skillsLoaded; else skillsData"></zpc-app-loader>
+        <ng-template #skillsData>
+          <ng-container *ngIf="skills.length; else noSkills">
+            <zpc-reccomendation *ngFor="let skill of skills" [data]="skill" [recType]="'skill'"></zpc-reccomendation>
+          </ng-container>
+          <ng-template #noSkills>
+            <p class="noData">No Skills Added</p>
+          </ng-template>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="askRecs">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="recCardHeader">
+            <div class="recCardTitle">
+              <mat-icon class="recIcon" svgIcon="ask-recs"></mat-icon> Ask Recs - Received
+            </div>
+            <a class="seeAll" [routerLink]="['../asks']">See All</a>
+          </div>
+          <p>{{ name | titlecase }} <span *ngIf="_relation?.rel === 'owner'">(you)</span> received 20 recommendations from 10 friends</p>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <zpc-app-loader *ngIf="!asksLoaded; else asksData"></zpc-app-loader>
+        <ng-template #asksData>
+          <ng-container *ngIf="asks.length; else noAsks">
+            <zpc-reccomendation *ngFor="let ask of asks" [data]="ask" [recType]="'ask'"></zpc-reccomendation>
+          </ng-container>
+          <ng-template #noAsks>
+            <p class="noData">No Asks Added</p>
+          </ng-template>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="recsGiven">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="recCardHeader">
+            <div class="recCardTitle">
+              <mat-icon class="recIcon" svgIcon="given-recs"></mat-icon> Recommendations Given
+            </div>
+          </div>
+          <p>{{ name | titlecase }} <span *ngIf="_relation?.rel === 'owner'">(you)</span> recommended 5 friends to 14 asks</p>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <zpc-app-loader *ngIf="!recsLoaded; else recsGivenData"></zpc-app-loader>
+        <ng-template #recsGivenData>
+          <ng-container *ngIf="recsGiven.length; else noRecsGiven">
+            <mat-accordion>
+              <ng-container *ngFor="let rec of recsGiven">
+                <mat-expansion-panel (opened)="panelState(rec?.id, true)" (closed)="panelState(rec?.id, false)">
+                  <mat-expansion-panel-header  [collapsedHeight]="'80px'" [expandedHeight]="'80px'">
+                    <mat-panel-title>
+                      <zpc-rec-given
+                        [type]="'parent'"
+                        [id]="rec?.id">
+                      </zpc-rec-given>
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        <ng-container *ngIf="!rec?.state; else openList">
+                          Show {{ rec?.child.length }} Recs
+                        </ng-container>
+                        <ng-template #openList>
+                          Hide {{ rec?.child.length }} Recs
+                        </ng-template>
+                      </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <mat-expansion-panel-content>
+                    <div class="panel-content">
+                      <zpc-rec-given
+                        *ngFor="let child of rec?.child"
+                        [id]="child?.id"
+                        [type]="'child'"
+                        [date]="child?.date">
+                      </zpc-rec-given>
+                    </div>
+                  </mat-expansion-panel-content>
+                </mat-expansion-panel>
+              </ng-container>
+            </mat-accordion>
+          </ng-container>
+          <ng-template #noRecsGiven>
+            <p class="noData">No Recommendations Given</p>
+          </ng-template>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  <aside class="right-rail" role="presentation">
+      <mat-card class="">
+        <mat-card-content class="right-sidebar">
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="asksrecs"></mat-icon>
+            <span matLine>Ask Recs</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="getwork"></mat-icon>
+            <span matLine>Get Work</span>
+          </mat-list-item>   
+          <mat-list-item>
+            <mat-icon mat-list-icon svgIcon="zipcrowd"></mat-icon>
+            <span matLine>Zip Crowd</span>
+          </mat-list-item>   
+        </mat-card-content>
+      </mat-card>
+  </aside>
+  
+</div>

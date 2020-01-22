@@ -1,0 +1,43 @@
+{
+    "message": "OK",
+    "response": {
+      "tags": [
+        {
+          "title": "Communication"
+        },
+        {
+          "title": "Collabration"
+        },
+        {
+          "title": "Prototype"
+        },
+        {
+          "title": "User Empathy"
+        },
+        {
+          "title": "User Research"
+        },
+        {
+          "title": "Visual Design"
+        },
+        {
+          "title": "Interaction Design"
+        },
+        {
+          "title": "User Testing"
+        },
+        {
+          "title": "Data Model"
+        },
+        {
+          "title": "Human Computer Interactions"
+        },
+        {
+          "title": "Wireframing"
+        },
+        {
+          "title": "Basic HTML"
+        }
+      ]
+    }
+  }

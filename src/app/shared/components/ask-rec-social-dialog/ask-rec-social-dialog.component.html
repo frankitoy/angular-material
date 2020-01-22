@@ -1,0 +1,31 @@
+<div mat-dialog-content>
+  <div class="c-modal--close">
+    <button class="c-btn" type="button" (click)="cancelLogin()">
+      <img src="/assets/img/icons/icon-close.svg" alt="Close">
+    </button>
+  </div>
+  <div class="c-modal-login">      
+    <div class="c-modal-login--header">
+      <h3>Friends. Skills. Recommendations.</h3>
+      <h5>Find anyone you need, from everyone you trust.</h5>
+      <span class="small">On the go. On demand. Free. With no middleman.</span>
+    </div>
+    <div class="c-modal-login--controls" cdkFocusInitial>
+      <button class="btn--sm" type="button" (click)="socialSignIn(LoginProviderType.FACEBOOK)">
+        <img src="/assets/img/icons/ic-fb-circle.svg" alt="Facebook">
+        <span class="btn-text">Continue with Facebook</span>
+      </button>
+      <button class="btn--sm" type="button" (click)="socialSignIn(LoginProviderType.GOOGLE)">
+        <img src="/assets/img/icons/ic-google-circle.svg" alt="Google">
+        <span class="btn-text">Continue with Google</span>
+      </button>
+    </div>
+    <div class="dialog-footer">
+      <div class="c-modal-login--footer">
+        By continuing, you agree to ZippyCrowd's <br/>
+        <a href="" class="font-bold">Terms of Use</a> and
+        <a href="" class="font-bold">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</div>
